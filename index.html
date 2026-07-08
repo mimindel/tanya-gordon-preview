@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanya Gordon — Psychotherapist | Highgate · Barnet · Online</title>
+  <meta name="description" content="Tanya Gordon MA MBACP UKCP — a psychotherapist supporting young people, families and adults in Highgate, Barnet, and online.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ── Brand tokens ───────────────────────────────────── */
+    :root {
+      /* Legacy brand palette (used by pages not yet reworked) */
+      --cream:        #f5f0e8;
+      --cream-alt:    #ede5d4;
+      --cream-deep:   #e2d8c4;
+      --forest:       #3b5a41;
+      --mid-green:    #5c7a62;
+      --sage:         #7e9971;
+      --pale-green:   #c5d4bf;
+      --lime:         #dce024;
+      --rust:         #da3f27;
+      --ink:          #1a2d1d;
+      --mid-ink:      #3d5040;
+      --muted:        #6a7d6c;
+
+      /* ── V2 olive system ── */
+      --olive:        #5e724f;   /* base surface / hero */
+      --olive-deep:   #4c5c3e;   /* recessed sections */
+      --olive-ink:    #2b3522;   /* darkest — CTA / footer */
+      --olive-line:   rgba(245,240,232,.14);
+      --relief:       #e8e4d6;   /* light warm-stone relief panel */
+
+      /* Text on olive */
+      --on-olive:       #f6f2ea;
+      --on-olive-soft:  #dfe2d1;
+      /* Text on relief */
+      --on-relief:      #23301f;
+      --on-relief-soft: #566150;
+
+      --lime-deep:    #c3c714;   /* lime hover */
+
+      /* ── Type scale (major third ~1.25) ── */
+      --fs-h1:      52px;                       /* section / page titles */
+      --fs-h2:      40px;                       /* statements / sub-heads */
+      --fs-h3:      22px;                       /* card & small heads */
+      --fs-lead:    24px;                       /* intro / lead paragraphs */
+      --fs-body:    18px;                       /* body */
+      --fs-small:   14px;                       /* meta, captions, eyebrows */
+
+      /* ── Container widths ── */
+      --w-wide: 1160px;   /* card grids, two-column layouts */
+      --w-read: 800px;    /* prose, accordions, FAQs */
+      --w-form: 640px;    /* contact form, tight CTA */
+      --w-hero: 900px;    /* centered quote heroes */
+
+      /* ── Spacing (fluid) ── */
+      --gutter:        28px;                     /* horizontal inset everywhere */
+      --sp-section:    clamp(56px, 8vw, 100px);  /* standard section band */
+      --sp-section-lg: clamp(64px, 9vw, 120px);  /* roomier band */
+      --sp-section-xl: clamp(80px, 11vw, 130px); /* hero / big statement band */
+    }
+
+    /* ── Reset & base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Atkinson Hyperlegible', Georgia, serif;
+      background: var(--olive);
+      color: var(--on-olive);
+      line-height: 1.72;
+      font-size: var(--fs-body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--on-olive);
+    }
+    a { color: inherit; }
+    button { cursor: pointer; }
+
+    /* Motion safety: never leave reveal content hidden */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .rv { opacity: 1 !important; transform: none !important; }
+      .aq span { opacity: 1 !important; }
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 250px 250px;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── Pages ──────────────────────────────────────────── */
+    .page { display: none; }
+    .page.active { display: block; animation: pgIn .45s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes pgIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-wrap { padding-top: 72px; }
+
+    /* ── Prose paragraph width ───────────────────────────── */
+    .section-sm p, .pw p { max-width: 680px; }
+
+    /* ── Typewriter reveal (arrow + attribution) ─────────── */
+    .tw-reveal { opacity: 0; transition: opacity .5s ease; }
+
+    /* ── Typewriter cursor ──────────────────────────────── */
+    .tw-cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: rgba(245,240,232,.6);
+      margin-left: 3px;
+      vertical-align: middle;
+      animation: tw-blink .7s step-end infinite;
+    }
+    @keyframes tw-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ── Scroll reveal ──────────────────────────────────── */
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+    }
+    .rv.in { opacity: 1; transform: none; }
+    .rv.d1 { transition-delay: .1s; }
+    .rv.d2 { transition-delay: .2s; }
+    .rv.d3 { transition-delay: .3s; }
+
+    /* ── Nav (olive shell) ──────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 28px;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background .4s cubic-bezier(.16,1,.3,1), border-color .4s, backdrop-filter .4s;
+    }
+    #nav.shadow {
+      background: rgba(43,50,37,.72);
+      backdrop-filter: blur(14px) saturate(1.1);
+      border-bottom-color: var(--olive-line);
+    }
+    .nav-inner {
+      max-width: var(--w-wide); margin: 0 auto;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 13px;
+      border: none; background: none; padding: 4px 0; border-radius: 10px;
+      text-align: left;
+    }
+    .nav-brand:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    .nav-brand img { height: 44px; width: auto; }
+    .nav-brand-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-small); font-weight: 500;
+      color: var(--on-olive); line-height: 1.35;
+    }
+    .nav-brand-text > span:first-child { display: block; color: var(--on-olive); font-weight: 500; }
+    .nav-brand-text > span:last-child  { display: block; font-weight: 300; color: rgba(246,242,234,.55); letter-spacing: .02em; }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nl {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-small); font-weight: 500;
+      color: rgba(246,242,234,.78); padding: 8px 11px;
+      border-radius: 0; border: none; background: none;
+      border-top: 2px solid transparent;
+      transition: color .2s, border-color .2s; white-space: nowrap;
+    }
+    .nl:hover { color: var(--on-olive); background: none; border-top-color: rgba(246,242,234,.35); }
+    .nl:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 4px; }
+    .nl.on { color: var(--on-olive); background: none; border-top-color: var(--lime); }
+    .nl.cta {
+      background: var(--lime); color: var(--olive-ink);
+      padding: 9px 18px; border-radius: 50px; font-weight: 600;
+      border-top: 2px solid transparent;
+      margin-left: 10px; transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .nl.cta:hover { background: #eef14a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(220,224,36,.28); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; }
+    .hamburger:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--on-olive); border-radius: 2px; transition: background .3s, transform .3s; }
+    @media(max-width: 900px){ .nav-links { display: none; } .hamburger { display: flex; } }
+
+    /* ── Mobile menu ────────────────────────────────────── */
+    #mob-menu {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: var(--olive-ink);
+      flex-direction: column; padding: 22px 28px calc(34px + env(safe-area-inset-bottom));
+    }
+    #mob-menu.open { display: flex; }
+    .mob-top { display: flex; align-items: center; justify-content: space-between; }
+    .mob-brand { display: flex; align-items: center; gap: 11px; }
+    .mob-brand img { height: 36px; width: auto; display: block; }
+    .mob-close { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: rgba(246,242,234,.08); border: none; border-radius: 50%; color: var(--on-olive); cursor: pointer; transition: background-color .2s; }
+    .mob-close:hover, .mob-close:active { background: rgba(246,242,234,.16); }
+    .mob-close svg { width: 22px; height: 22px; }
+    .mob-links { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+    .mob-link { font-family: 'Poppins', sans-serif; font-size: clamp(28px,8.5vw,40px); font-weight: 600; letter-spacing: -.025em; line-height: 1.18; color: var(--on-olive); background: none; border: none; text-align: left; padding: 9px 0; cursor: pointer; transition: color .2s; }
+    .mob-link.on { color: var(--lime); }
+    .mob-link:active { color: var(--lime); }
+    .mob-foot { display: flex; flex-direction: column; gap: 16px; }
+    .mob-foot .btn { width: 100%; justify-content: center; }
+    .mob-email { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); color: var(--on-olive-soft); text-decoration: none; text-align: center; }
+    #mob-menu.open .mob-link, #mob-menu.open .mob-foot { opacity: 0; animation: mobIn .5s cubic-bezier(.16,1,.3,1) forwards; }
+    #mob-menu.open .mob-link:nth-child(1){ animation-delay:.06s }
+    #mob-menu.open .mob-link:nth-child(2){ animation-delay:.11s }
+    #mob-menu.open .mob-link:nth-child(3){ animation-delay:.16s }
+    #mob-menu.open .mob-link:nth-child(4){ animation-delay:.21s }
+    #mob-menu.open .mob-link:nth-child(5){ animation-delay:.26s }
+    #mob-menu.open .mob-foot { animation-delay:.32s }
+    @keyframes mobIn { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform:none; } }
+
+    /* ── Layout helpers ─────────────────────────────────── */
+    .container  { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+    .section    { padding: 96px 28px; max-width: var(--w-wide); margin: 0 auto; }
+    .section-sm { padding: 80px 28px; max-width: var(--w-read); margin: 0 auto; }
+    .section-bg { padding: 96px 28px; }
+    /* Prose column — for body text within 1240px sections */
+    .prose { max-width: 700px; }
+
+    /* ── Buttons ────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600;
+      padding: 14px 28px; border-radius: 50px; border: 2px solid transparent; text-decoration: none;
+      transition: background-color .25s cubic-bezier(.16,1,.3,1), color .25s, border-color .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
+      cursor: pointer;
+    }
+    .btn:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+    .btn:active { transform: translateY(0) !important; }
+    /* Primary CTA on olive: lime */
+    .btn-lime { background: var(--lime); color: var(--olive-ink); }
+    .btn-lime:hover { background: #eef14a; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(220,224,36,.3); }
+    /* Ghost on olive: cream outline */
+    .btn-outline { background: transparent; color: var(--on-olive); border-color: rgba(246,242,234,.4); }
+    .btn-outline:hover { background: var(--on-olive); color: var(--olive-ink); border-color: var(--on-olive); transform: translateY(-2px); }
+    /* Legacy variants retained for untouched pages */
+    .btn-dark { background: var(--forest); color: var(--cream); }
+    .btn-dark:hover { background: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,90,65,.28); }
+    .btn-cream { background: var(--cream); color: var(--forest); }
+    .btn-cream:hover { background: white; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+
+    /* ── Arrow link ─────────────────────────────────────── */
+    .alink {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600;
+      color: var(--forest); border: none; background: none; padding: 0;
+      text-decoration: none; transition: gap .2s;
+    }
+    .alink::after { content: '→'; transition: transform .2s; }
+    .alink:hover { gap: 12px; }
+    .alink:hover::after { transform: translateX(2px); }
+    .alink-cream { color: var(--cream); }
+    .alink-cream::after { color: var(--lime); }
+
+    /* ── Cards ──────────────────────────────────────────── */
+    .card {
+      background: white; border-radius: 20px; padding: 36px;
+      box-shadow: 0 2px 8px rgba(59,90,65,.05), 0 8px 32px rgba(59,90,65,.07);
+      transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(59,90,65,.1), 0 28px 64px rgba(59,90,65,.1); }
+    .card-dark { background: var(--forest); border-radius: 20px; padding: 36px; box-shadow: 0 8px 40px rgba(59,90,65,.25); }
+    .card-dark h2, .card-dark h3 { color: var(--cream); }
+
+    /* ── Pill tags ──────────────────────────────────────── */
+    .pill { display: inline-block; padding: 5px 15px; border-radius: 50px; font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; }
+    .pill-sage  { background: var(--pale-green); color: var(--forest); }
+    .pill-lime  { background: var(--lime); color: var(--ink); }
+    .pill-rust  { background: rgba(218,63,39,.1); color: var(--rust); }
+    .pill-cream { background: rgba(245,240,232,.15); color: var(--cream); border: 1px solid rgba(245,240,232,.2); }
+
+    /* ── Section headings ───────────────────────────────── */
+    .eyebrow {
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--on-olive-soft);
+      margin-bottom: 18px; display: inline-block;
+    }
+    .eyebrow-lime { color: var(--lime); }
+    .eyebrow-relief { color: var(--on-relief-soft); }
+
+    /* ── Quote hero ─────────────────────────────────────── */
+    .quote-hero {
+      background: var(--forest);
+      padding: 96px 28px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      min-height: 50vh;
+    }
+    .quote-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -8%;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(220,224,36,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quote-hero::after {
+      content: '';
+      position: absolute; bottom: -20%; left: -5%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,153,113,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .qmark {
+      position: absolute; top: 20px; left: 36px;
+      font-family: 'Poppins', sans-serif; font-size: 180px; line-height: .8;
+      font-style: italic; font-weight: 700;
+      color: var(--lime); opacity: .35;
+      pointer-events: none; user-select: none;
+    }
+    .quote-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-h2);
+      font-weight: 400; font-style: italic;
+      color: var(--cream); max-width: 860px;
+      line-height: 1.5; position: relative; z-index: 1;
+    }
+    .quote-attr {
+      font-size: var(--fs-small); color: var(--pale-green);
+      margin-top: 20px; letter-spacing: .04em; position: relative; z-index: 1;
+    }
+
+    /* Quote word animation */
+    @keyframes wordIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .aq span {
+      display: inline;
+      opacity: 0;
+      animation: wordIn .5s cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+/* ── Accordion ──────────────────────────────────────── */
+    .acc-item { border-bottom: 1px solid rgba(59,90,65,.15); }
+    .acc-item:first-child { border-top: 1px solid rgba(59,90,65,.15); }
+    .acc-trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-body); font-weight: 600; color: var(--ink);
+      cursor: pointer; background: none; border: none; text-align: left;
+      transition: color .2s;
+    }
+    .acc-trigger:hover { color: var(--forest); }
+    .acc-trigger:focus-visible { outline: 3px solid var(--lime); border-radius: 4px; }
+    .acc-icon {
+      width: 24px; height: 24px; min-width: 24px; display: flex; align-items: center; justify-content: center;
+      transition: transform .3s ease; color: var(--forest);
+    }
+    .acc-trigger[aria-expanded="true"] .acc-icon { transform: rotate(180deg); }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.16,1,.3,1); }
+    .acc-body.open { max-height: 2400px; }
+    .acc-inner { padding-bottom: 24px; }
+
+    /* ── Support cards ──────────────────────────────────── */
+    #support-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .support-card {
+      cursor: pointer;
+      overflow: hidden;
+      transition: box-shadow .25s;
+    }
+    .support-card:not(.sc-open):hover { box-shadow: 0 6px 28px rgba(59,90,65,.12); }
+    .support-card.sc-open { cursor: default; }
+    .sc-arrow { font-size: var(--fs-h3); color: var(--forest); line-height: 1; display: block; }
+    .sc-body { transition: max-height 1.1s ease, opacity .3s ease !important; }
+    .support-card.sc-open .sc-body { opacity: 1 !important; }
+    /* ── Bullet list ────────────────────────────────────── */
+    .blist { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .blist li { display: flex; align-items: flex-start; gap: 12px; }
+    .blist li::before {
+      content: ''; width: 6px; height: 6px; min-width: 6px;
+      border-radius: 50%; background: var(--forest);
+      margin-top: 9px;
+    }
+
+    /* ── Approach tiles ─────────────────────────────────── */
+    .approach-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    @media(max-width:600px){ .approach-grid { grid-template-columns: 1fr; } }
+    .approach-tile {
+      background: white; border-radius: 20px; padding: 24px 22px 22px;
+      box-shadow: 0 2px 12px rgba(59,90,65,.06);
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 160px;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .approach-tile:hover { box-shadow: 0 8px 28px rgba(59,90,65,.12); transform: translateY(-2px); }
+    .approach-tile-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+    .approach-tile-icon { color: var(--forest); opacity: .7; }
+    .approach-tile-arrow { color: var(--muted); opacity: .4; flex-shrink: 0; }
+    .approach-tile strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; color: var(--forest); display: block; margin-bottom: 6px; line-height: 1.3; }
+    .approach-tile p { color: var(--muted); font-size: var(--fs-small); line-height: 1.6; margin: 0; }
+    .approach-grid--inline .approach-tile { flex-direction: row; align-items: flex-start; gap: 20px; min-height: 0; }
+    .approach-grid--inline .approach-tile-top { margin-bottom: 0; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Steps ──────────────────────────────────────────── */
+    .step-row { display: flex; gap: 20px; align-items: flex-start; }
+    .step-num {
+      width: 48px; height: 48px; min-width: 48px; border-radius: 50%;
+      background: var(--forest); color: var(--cream);
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── Qual cards ─────────────────────────────────────── */
+    .qual-card {
+      background: rgba(245,240,232,.08); border-radius: 16px; padding: 24px;
+      border: 1px solid rgba(197,212,191,.18);
+    }
+    .qual-label {
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 700;
+      color: var(--lime); text-transform: uppercase; letter-spacing: .09em;
+      margin-bottom: 8px;
+    }
+
+    /* ── Credential badges ──────────────────────────────── */
+    .cred-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 50px;
+      border: 1.5px solid rgba(197,212,191,.25);
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600;
+      color: var(--pale-green);
+    }
+
+    /* ── Resource links ─────────────────────────────────── */
+    .res-link {
+      display: block; padding: 16px 20px; border-radius: 11px;
+      background: white; text-decoration: none; color: var(--ink); font-size: var(--fs-small);
+      box-shadow: 0 2px 8px rgba(59,90,65,.05);
+      border-left: 3px solid var(--sage);
+      transition: border-left-color .2s, transform .2s, box-shadow .2s;
+    }
+    .res-link:hover { border-left-color: var(--lime); transform: translateX(4px); box-shadow: 0 5px 20px rgba(59,90,65,.1); }
+    .res-link span { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); color: var(--muted); display: block; margin-top: 3px; }
+
+    /* ── Form ───────────────────────────────────────────── */
+    .flabel { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; color: var(--ink); margin-bottom: 7px; display: block; }
+    .finput, .fselect, .ftextarea {
+      width: 100%; padding: 13px 17px;
+      border: 2px solid var(--cream-alt); border-radius: 12px;
+      font-family: 'Atkinson Hyperlegible', sans-serif; font-size: var(--fs-body);
+      background: white; color: var(--ink);
+      transition: border-color .2s; -webkit-appearance: none; appearance: none;
+    }
+    .finput:focus, .fselect:focus, .ftextarea:focus { outline: none; border-color: var(--forest); }
+    .ftextarea { resize: vertical; min-height: 130px; }
+    .contact-btn {
+      flex: 1; min-width: 110px;
+      padding: 13px; border: 2px solid var(--cream-alt); border-radius: 12px;
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500;
+      cursor: pointer; background: white; text-align: center;
+      transition: border-color .2s, background-color .2s, color .2s;
+    }
+    .contact-btn:hover { border-color: var(--sage); }
+    .contact-btn.sel { border-color: var(--forest); background: var(--forest); color: var(--cream); }
+
+    /* ── Grid ───────────────────────────────────────────── */
+    .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .g2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+    @media(max-width:800px){ .g3,.g2 { grid-template-columns: 1fr; } }
+
+    /* ── Editorial statement (flat olive) ────────────── */
+    .intro-strip { background: var(--olive); padding: var(--sp-section-lg) var(--gutter); }
+    .intro-statement {
+      max-width: var(--w-hero); margin: 0 auto; text-align: center;
+      font-family: 'Poppins', sans-serif; font-weight: 400;
+      font-size: var(--fs-h2); line-height: 1.45; letter-spacing: -.015em;
+      color: var(--on-olive);
+    }
+    /* Tanya's signature 'heart-led' rust wash — intentional, kept subtle */
+    .rust-word {
+      font-style: normal; font-weight: 500;
+      background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: #ef6a3f;
+    }
+
+    /* ── Services (flat olive · shadowed cards) ──────── */
+    .services { background: var(--olive); padding: var(--sp-section-lg) var(--gutter); }
+    .services-inner { max-width: var(--w-wide); margin: 0 auto; }
+    .services-head { text-align: center; margin-bottom: 54px; }
+    .services-intro { font-size: var(--fs-lead); color: var(--on-olive-soft); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .svc-card {
+      position: relative; display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 268px; border-radius: 18px; background: var(--olive);
+      padding: 30px 30px 24px; color: var(--on-olive); cursor: pointer;
+      box-shadow: 0 7px 18px rgba(0,0,0,.2);
+      transition: box-shadow .45s cubic-bezier(.16,1,.3,1);
+    }
+    /* Hover / focus: shadow lifts away; label + arrow take the rust wash */
+    .svc-card:hover, .svc-card:focus-visible {
+      box-shadow: 0 7px 18px rgba(0,0,0,0);
+    }
+    .svc-card:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+    .svc-content { flex: 1; }
+    .svc-desc { font-size: var(--fs-body); line-height: 1.72; color: var(--on-olive); }
+    .svc-bottom {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--olive-line);
+    }
+    .svc-label {
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600;
+      letter-spacing: -.02em; line-height: 1.2; color: var(--on-olive); transition: color .3s;
+    }
+    .svc-arrow { flex-shrink: 0; color: var(--on-olive); transition: transform .3s cubic-bezier(.16,1,.3,1), color .3s; }
+    .svc-card:hover .svc-arrow, .svc-card:focus-visible .svc-arrow { color: #ef6a3f; transform: translateX(6px); }
+    .svc-card:hover .svc-label, .svc-card:focus-visible .svc-label {
+      background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    @media(max-width: 800px) { .svc-grid { grid-template-columns: 1fr; } .svc-card { min-height: auto; } }
+
+    /* ── Closing CTA band (footer-dark green) ────────── */
+    .cta-band { background: var(--ink); padding: var(--sp-section-xl) var(--gutter); text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; top: -34%; left: 50%; transform: translateX(-50%); width: 660px; height: 660px; border-radius: 50%; background: radial-gradient(circle, rgba(220,224,36,.09), transparent 66%); pointer-events: none; }
+    .cta-inner { max-width: var(--w-form); margin: 0 auto; position: relative; z-index: 1; }
+    .cta-title { color: var(--on-olive); font-size: var(--fs-h1); margin-bottom: 20px; letter-spacing: -.03em; }
+    .cta-text { font-size: var(--fs-lead); color: var(--on-olive-soft); margin: 0 auto 38px; line-height: 1.7; max-width: 520px; }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    #site-footer { background: var(--ink); color: var(--cream); padding: 72px 28px 48px; }
+    .footer-inner { max-width: var(--w-wide); margin: 0 auto; }
+
+    /* ── Hero (home · olive) ────────────────────────────── */
+    .home-hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; background: var(--olive);
+      position: relative; overflow: hidden; padding: 108px var(--gutter) 48px;
+    }
+    .home-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-title { font-size: 88px; font-weight: 500; line-height: 1.03; letter-spacing: -.03em; color: var(--on-olive); margin-bottom: 18px; }
+    .hero-title em { font-style: normal; color: var(--lime); }
+    .hero-copy { max-width: 700px; margin: 0 auto; }
+    .hero-lead { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.58; margin: 0 0 18px; }
+    .hero-sub  { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.58; margin: 0 0 30px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .hero-locations {
+      display: inline-block; margin: 0 auto 34px;
+      padding: 13px 26px; border-radius: 14px;
+      background: var(--olive); box-shadow: 0 7px 18px rgba(0,0,0,.2);
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500;
+      letter-spacing: .01em; color: var(--on-olive);
+    }
+
+    /* Full-bleed band for the interactive water-line (still → wavy → settle, ripple on mouse) */
+    .hero-anim { width: 100vw; margin: clamp(30px,6vh,78px) 0 0; height: clamp(84px,14vh,150px); position: relative; z-index: 1; }
+    .hero-anim canvas { width: 100%; height: 100%; display: block; }
+
+    /* ── Aurora background (brand greens + lime) ─────── */
+    .aurora {
+      position: absolute; inset: -10px; z-index: 0; pointer-events: none;
+      opacity: .45; filter: blur(32px); will-change: transform;
+      background-image:
+        repeating-linear-gradient(100deg, rgba(246,242,234,.14) 0%, rgba(246,242,234,.14) 7%, transparent 10%, transparent 12%, rgba(246,242,234,.14) 16%),
+        repeating-linear-gradient(100deg, #3b5a41 10%, #7e9971 15%, #c5d4bf 20%, #dce024 25%, #5c7a62 30%);
+      background-size: 300% 200%;
+      background-position: 50% 50%, 50% 50%;
+      -webkit-mask-image: radial-gradient(ellipse at 70% 0%, #000 10%, transparent 72%);
+              mask-image: radial-gradient(ellipse at 70% 0%, #000 10%, transparent 72%);
+    }
+    .aurora::after {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(100deg, rgba(246,242,234,.14) 0%, rgba(246,242,234,.14) 7%, transparent 10%, transparent 12%, rgba(246,242,234,.14) 16%),
+        repeating-linear-gradient(100deg, #3b5a41 10%, #7e9971 15%, #c5d4bf 20%, #dce024 25%, #5c7a62 30%);
+      background-size: 200% 100%;
+      mix-blend-mode: screen;
+      animation: aurora 60s linear infinite;
+    }
+    @keyframes aurora {
+      from { background-position: 50% 50%, 50% 50%; }
+      to   { background-position: 350% 50%, 350% 50%; }
+    }
+
+    /* ═══════════ MEET TANYA PAGE ═══════════ */
+    .meet-hero { min-height: 100vh; display: flex; align-items: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .meet-hero-inner { max-width: var(--w-wide); margin: 0 auto; width: 100%; position: relative; z-index: 1;
+      display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(32px,5vw,72px); align-items: center; }
+    .meet-portrait { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/5;
+      box-shadow: 0 7px 18px rgba(0,0,0,.2), 0 42px 84px rgba(0,0,0,.30); background: var(--olive-deep); }
+    .meet-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; filter: grayscale(100%) contrast(1.04) brightness(1.02); }
+    .meet-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(95,108,85,.14), rgba(43,50,37,.5)); mix-blend-mode: multiply; pointer-events: none; }
+    .meet-hero-title { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: var(--fs-h2); line-height: 1.42; letter-spacing: -.01em; color: var(--on-olive); }
+    .meet-hero-title strong { font-weight: 600; font-size: var(--fs-h1); }
+    @media(max-width:820px){ .meet-hero-inner { grid-template-columns: 1fr; gap: 36px; } .meet-portrait { max-width: 360px; margin: 0 auto; } }
+
+    /* Signature voice quote */
+    .voice { background: var(--olive); padding: var(--sp-section) var(--gutter); text-align: center; }
+    .voice p { max-width: 940px; margin: 0 auto; font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-size: var(--fs-h2); line-height: 1.4; color: var(--on-olive); }
+    .voice .rust-word { font-style: italic; }
+
+    /* Bio prose */
+    .meet-bio { background: var(--olive); padding: 0 var(--gutter) var(--sp-section); }
+    .meet-bio-inner { max-width: var(--w-read); margin: 0 auto; columns: 2; column-gap: 52px; }
+    .meet-bio-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); line-height: 1.8; margin-bottom: 22px; break-inside: avoid; }
+    .meet-bio-inner p:last-child { margin-bottom: 0; }
+    .meet-bio-inner .hl { color: var(--on-olive); }
+    @media(max-width:720px){ .meet-bio-inner { columns: 1; } }
+
+    /* Outside-of-work beat */
+    .meet-life { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .meet-life-inner { max-width: var(--w-wide); margin: 0 auto; }
+    .meet-life-img { border-radius: 22px; overflow: hidden; aspect-ratio: 16/7; position: relative; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
+    .meet-life-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .meet-life-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(43,50,37,.12)); mix-blend-mode: multiply; }
+    .meet-life-caption { max-width: min(620px, 85%); margin: -56px clamp(0px,7vw,110px) 0 auto; position: relative; z-index: 1; background: var(--olive); border-radius: 16px; padding: 30px 34px; box-shadow: 0 7px 18px rgba(0,0,0,.2); font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.65; }
+    @media(max-width:760px){ .meet-life-caption { margin-right: auto; } }
+
+    /* Olive accordions */
+    .meet-acc { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .meet-acc-inner { max-width: var(--w-read); margin: 0 auto; }
+    .meet-acc .acc-item { border-bottom: 1px solid var(--olive-line); }
+    .meet-acc .acc-item:first-child { border-top: 1px solid var(--olive-line); }
+    .meet-acc .acc-trigger { color: var(--on-olive); font-size: var(--fs-h2); }
+    .meet-acc .acc-trigger:hover { color: var(--lime); }
+    .meet-acc .acc-icon { color: var(--lime); }
+    .meet-acc .acc-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); margin-bottom: 16px; line-height: 1.8; }
+    .meet-acc .acc-inner p:last-child { margin-bottom: 0; }
+    .meet-acc .blist li { font-size: var(--fs-lead); }
+    .meet-acc .blist li::before { background: var(--lime); }
+    .meet-acc .blist strong { font-family: 'Poppins', sans-serif; color: var(--on-olive); }
+    .meet-acc .blist span { color: var(--on-olive-soft); }
+
+    /* Approach tiles (kept design, olive) */
+    .meet-approach { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .meet-approach-inner { max-width: var(--w-read); margin: 0 auto; }
+    .meet-approach-head { margin-bottom: 44px; }
+    .meet-approach-head h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 12px; }
+    .meet-approach-head p { color: var(--on-olive-soft); font-size: var(--fs-lead); max-width: 640px; }
+    .approach-grid2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    @media(max-width:720px){ .approach-grid2 { grid-template-columns: 1fr; } }
+    .appro-card { background: var(--cream); border-radius: 20px; padding: 24px 24px 22px; box-shadow: 0 2px 12px rgba(43,50,37,.10); min-height: 148px; display: flex; flex-direction: column; justify-content: flex-start; }
+    .appro-icon { color: var(--rust); margin-bottom: 14px; }
+    .appro-icon svg { width: 26px; height: 26px; display: block; }
+    .appro-card strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-lead); font-weight: 600; color: var(--forest); display: block; margin-bottom: 7px; line-height: 1.3; }
+    .appro-card p { color: var(--mid-ink); font-size: var(--fs-body); line-height: 1.6; margin: 0; }
+
+    /* Credentials band */
+    .meet-creds { background: var(--olive); padding: var(--sp-section-lg) var(--gutter); }
+    .meet-creds-inner { max-width: var(--w-read); margin: 0 auto; }
+    .meet-creds h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 38px; }
+    .qual-grid { display: grid; gap: 14px; }
+    .qual-card { background: var(--olive); border-radius: 14px; padding: 22px 26px; box-shadow: 0 7px 18px rgba(0,0,0,.22); }
+    .qual-label { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--lime); margin-bottom: 8px; }
+    .qual-card .q { color: var(--on-olive); line-height: 1.7; font-size: var(--fs-body); }
+    .meet-creds h3 { color: var(--on-olive); font-size: var(--fs-h3); margin: 48px 0 22px; }
+    .cpd-list { display: flex; flex-direction: column; gap: 14px; }
+    .cpd-list li { color: var(--on-olive-soft); display: flex; gap: 12px; line-height: 1.7; font-size: var(--fs-body); }
+    .cpd-list li .mk { color: var(--lime); flex-shrink: 0; margin-top: 3px; }
+    .cpd-list li strong { color: var(--on-olive); font-family: 'Poppins', sans-serif; }
+
+
+    /* ═══════════ FOR YOUNG PEOPLE PAGE ═══════════ */
+    .young-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .young-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
+    #tw-young { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+    .young-scroll { background: none; border: none; cursor: pointer; color: var(--on-olive-soft); margin-top: 40px; padding: 8px; transition: color .2s, transform .2s, opacity .5s; }
+    .young-scroll:hover { color: var(--on-olive); transform: translateY(3px); }
+    .young-scroll:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 6px; }
+
+    /* Who I support — full-width tabs, click to reveal */
+    .young-support { background: var(--olive); min-height: 50vh; padding: var(--sp-section-lg) var(--gutter) clamp(100px,13vw,168px); transition: padding-bottom .55s cubic-bezier(.16,1,.3,1); }
+    .young-support.panel-open { padding-bottom: clamp(56px,7vw,96px); }
+    .ftabs-inner { max-width: var(--w-wide); margin: 0 auto; }
+    .ftabs { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid var(--olive-line); position: relative; }
+    .ftab { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: rgba(246,242,234,.42); background: none; border: none; padding: 0 0 22px; cursor: pointer; position: relative; transition: color .3s; display: inline-flex; align-items: center; gap: clamp(10px,1.2vw,16px); }
+    .ftab:hover { color: var(--on-olive-soft); }
+    .ftab.active { color: var(--on-olive); }
+    .ftab-marker { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--lime); border-radius: 2px; opacity: 0; transform: translateX(0); transition: transform .5s cubic-bezier(.16,1,.3,1), width .5s cubic-bezier(.16,1,.3,1), opacity .3s; pointer-events: none; }
+    .ftab-ind { display: inline-flex; align-items: center; justify-content: center; color: rgba(246,242,234,.5); flex-shrink: 0; transition: color .3s, transform .5s cubic-bezier(.16,1,.3,1); }
+    .ftab-ind svg { width: clamp(22px,2.2vw,30px); height: clamp(22px,2.2vw,30px); display: block; }
+    .ftab.active .ftab-ind { color: var(--lime); transform: rotate(180deg); }
+    .ftab:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; border-radius: 4px; }
+    .ftab-panel { max-height: 0; overflow: hidden; transition: max-height .6s cubic-bezier(.16,1,.3,1); }
+    .fpanel { display: none; padding-top: clamp(38px,4.5vw,60px); }
+    .fpanel.active { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(28px,4vw,64px); align-items: start; animation: fpfade .55s .1s both; }
+    @keyframes fpfade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .fpanel h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; line-height: 1.08; margin: 0; }
+    .fp-text p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.8; margin-bottom: 16px; }
+    .fp-text p:last-child { margin-bottom: 0; }
+    @media(max-width:720px){ .fpanel.active { grid-template-columns: 1fr; gap: 16px; } .ftabs { gap: 10px; } .ftab { font-size: clamp(13px,3.9vw,22px); gap: 8px; padding-bottom: 16px; } .ftab-ind svg { width: 18px; height: 18px; } }
+
+    /* FAQ (olive accordions) */
+    .young-faq { background: var(--olive); padding: 0 var(--gutter) var(--sp-section); }
+    .young-faq-inner { max-width: var(--w-read); margin: 0 auto; }
+    .young-faq h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 36px; }
+    .young-faq .acc-item { border-bottom: 1px solid var(--olive-line); }
+    .young-faq .acc-item:first-child { border-top: 1px solid var(--olive-line); }
+    .young-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); }
+    .young-faq .acc-trigger:hover { color: var(--lime); }
+    .young-faq .acc-icon { color: var(--lime); }
+    .young-faq .blist li::before { background: var(--lime); }
+    .young-faq .blist strong { font-family: 'Poppins', sans-serif; color: var(--on-olive); }
+    .young-faq .blist span { color: var(--on-olive-soft); }
+
+    /* How to get started (footer-dark, Aepsy-style staggered cards) */
+    .young-start { background: var(--ink); padding: var(--sp-section-xl) var(--gutter); }
+    .young-start-inner { max-width: var(--w-read); margin: 0 auto; }
+    .young-start h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 14px; }
+    .young-start-intro { color: var(--on-olive-soft); font-size: var(--fs-lead); line-height: 1.7; max-width: 620px; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 56px; }
+    .steps-grid .step-card:nth-child(even) { margin-top: 52px; }
+    .step-card { display: flex; flex-direction: column; }
+    .gs-num { font-family: 'Poppins', sans-serif; font-size: clamp(52px,6.5vw,78px); font-weight: 700; line-height: .9; color: rgba(246,242,234,.17); padding-left: 6px; margin-bottom: 8px; }
+    .step-inner { background: var(--olive); border-radius: 22px; padding: 32px 30px 30px; box-shadow: 0 7px 18px rgba(0,0,0,.28); text-align: center; }
+    .step-ico { color: var(--on-olive); display: flex; justify-content: center; margin-bottom: 16px; }
+    .step-ico svg { width: 40px; height: 40px; }
+    .step-inner h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); margin-bottom: 10px; letter-spacing: -.01em; line-height: 1.25; }
+    .step-inner p { color: var(--on-olive-soft); font-size: var(--fs-small); line-height: 1.65; margin: 0; }
+    .young-start-cta { margin-top: 40px; display: flex; justify-content: flex-end; }
+    @media(max-width:640px){ .steps-grid { grid-template-columns: 1fr; gap: 36px; } .steps-grid .step-card:nth-child(even){ margin-top: 0; } }
+
+    /* ═══════════ FOR ADULTS PAGE ═══════════ */
+    .adults-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .adults-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
+    #tw-adults { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+
+    .adults-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .adults-intro-inner { max-width: var(--w-read); margin: 0 auto; text-align: left; }
+    .adults-intro h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 24px; }
+    .adults-intro p { font-size: var(--fs-lead); color: var(--on-olive-soft); line-height: 1.75; max-width: 720px; margin: 0; }
+
+    .adults-nav2030 { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .adults-nav2030-inner { max-width: var(--w-wide); margin: 0 auto; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px,5vw,64px); align-items: start; }
+    .adults-nav2030 .n2030-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; line-height: 1.1; margin-top: 12px; }
+    .adults-nav2030 .n2030-text p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.8; margin-bottom: 18px; }
+    .adults-nav2030 .n2030-text p:last-child { margin-bottom: 0; }
+    @media(max-width:760px){ .adults-nav2030-inner { grid-template-columns: 1fr; gap: 18px; } }
+
+    .adults-areas { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .adults-areas-inner { max-width: var(--w-read); margin: 0 auto; }
+    .adults-areas-head { text-align: left; margin-bottom: 48px; }
+    .adults-areas-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .areas-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .area-card { background: var(--olive); border-radius: 18px; padding: 30px 32px; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
+    .area-card h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); letter-spacing: -.01em; line-height: 1.2; margin-bottom: 12px; }
+    .area-card p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin: 0; }
+    @media(max-width:640px){ .areas-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════ FOR NEURODIVERGENCE PAGE ═══════════ */
+    .neuro-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .neuro-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
+    #tw-neuro { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+
+    .neuro-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .neuro-intro-inner { max-width: var(--w-wide); margin: 0 auto; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px,5vw,64px); align-items: start; }
+    .neuro-intro h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; line-height: 1.1; margin-top: 12px; }
+    .neuro-intro .ni-text p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.8; margin-bottom: 18px; }
+    .neuro-intro .ni-text p:last-child { margin-bottom: 0; }
+    @media(max-width:760px){ .neuro-intro-inner { grid-template-columns: 1fr; gap: 18px; } }
+
+    .neuro-work { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .neuro-work-inner { max-width: var(--w-read); margin: 0 auto; }
+    .neuro-work-head { max-width: var(--w-read); margin-bottom: 44px; }
+    .neuro-work-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .neuro-work-head p { color: var(--on-olive-soft); font-size: var(--fs-lead); line-height: 1.75; margin-top: 16px; }
+    .work-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .work-card { background: var(--olive); border-radius: 18px; padding: 28px 30px; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
+    .work-card strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); display: block; margin-bottom: 10px; letter-spacing: -.01em; line-height: 1.25; }
+    .work-card p { color: var(--on-olive-soft); font-size: var(--fs-small); line-height: 1.65; margin: 0; }
+    .neuro-work-cta { margin-top: 44px; display: flex; justify-content: center; }
+    @media(max-width:640px){ .work-grid { grid-template-columns: 1fr; } }
+
+    .neuro-res { background: var(--ink); padding: var(--sp-section-lg) var(--gutter); }
+    .neuro-res-inner { max-width: var(--w-read); margin: 0 auto; }
+    .neuro-res-head { margin-bottom: 44px; }
+    .neuro-res-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .neuro-res-head p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin-top: 12px; max-width: 620px; }
+    .res-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .res-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; background: var(--olive); border-radius: 14px; padding: 20px 22px; text-decoration: none; box-shadow: 0 7px 18px rgba(0,0,0,.22); transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .res-item:hover { transform: translateY(-3px); }
+    .res-item:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+    .res-txt strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-body); font-weight: 600; color: var(--on-olive); display: block; line-height: 1.3; margin-bottom: 5px; }
+    .res-txt span { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); color: var(--on-olive-soft); letter-spacing: .02em; }
+    .res-arrow { color: var(--lime); flex-shrink: 0; margin-top: 2px; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .res-arrow svg { width: 18px; height: 18px; display: block; }
+    .res-item:hover .res-arrow { transform: translate(2px,-2px); }
+    @media(max-width:640px){ .res-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════ CONNECT PAGE ═══════════ */
+    .connect-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .connect-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
+    #tw-connect { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0 0 18px; }
+    .connect-attr { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500; color: var(--on-olive-soft); letter-spacing: .06em; }
+    .connect-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .connect-intro-inner { max-width: var(--w-read); margin: 0 auto; }
+    .connect-lead { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.7; margin-bottom: clamp(44px,5vw,60px); }
+    .csteps { display: flex; flex-direction: column; gap: 30px; }
+    .cstep { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
+    .cstep-num { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 700; color: var(--lime); line-height: 1; }
+    .cstep h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); margin-bottom: 7px; letter-spacing: -.01em; }
+    .cstep p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin: 0; }
+    .connect-form { background: var(--olive); padding: var(--sp-section) var(--gutter); }
+    .connect-form-inner { max-width: var(--w-form); margin: 0 auto; }
+    .connect-form h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
+    .flabel { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; color: var(--on-olive); margin-bottom: 8px; display: block; }
+    .flabel .req { color: #ef6a3f; }
+    .flabel .opt { font-weight: 400; color: var(--on-olive-soft); }
+    .finput, .fselect, .ftextarea { width: 100%; padding: 14px 16px; border: 1px solid var(--olive-line); border-radius: 12px; background: rgba(0,0,0,.16); color: var(--on-olive); font-family: 'Atkinson Hyperlegible', sans-serif; font-size: var(--fs-body); transition: border-color .2s, box-shadow .2s; }
+    .finput::placeholder, .ftextarea::placeholder { color: rgba(246,242,234,.4); }
+    .finput:focus, .fselect:focus, .ftextarea:focus { outline: none; border-color: var(--lime); box-shadow: 0 0 0 3px rgba(220,224,36,.16); }
+    .fselect { appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23dfe2d1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+    .ftextarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .contact-btn { flex: 1; min-width: 110px; padding: 13px; border: 1px solid var(--olive-line); border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500; cursor: pointer; background: transparent; color: var(--on-olive-soft); text-align: center; transition: border-color .2s, background-color .2s, color .2s; }
+    .contact-btn:hover { border-color: rgba(246,242,234,.3); color: var(--on-olive); }
+    .contact-btn.sel { border-color: var(--lime); background: rgba(220,224,36,.14); color: var(--on-olive); }
+    .contact-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    #formSuccess { background: var(--olive-ink); border-radius: 20px; padding: 40px; text-align: center; margin-top: 24px; }
+    #formSuccess h3 { font-family: 'Poppins', sans-serif; color: var(--on-olive); font-size: var(--fs-h3); margin-bottom: 12px; }
+    #formSuccess p { color: var(--on-olive-soft); line-height: 1.7; }
+    .connect-faq { background: var(--olive); padding: var(--sp-section) var(--gutter) var(--sp-section-lg); }
+    .connect-faq-inner { max-width: var(--w-read); margin: 0 auto; }
+    .connect-faq h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
+    .connect-faq .acc-item { border-bottom: 1px solid var(--olive-line); }
+    .connect-faq .acc-item:first-child { border-top: 1px solid var(--olive-line); }
+    .connect-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); }
+    .connect-faq .acc-trigger:hover { color: var(--lime); }
+    .connect-faq .acc-icon { color: var(--lime); }
+    .connect-faq .acc-inner p { color: var(--on-olive-soft); line-height: 1.8; }
+
+    /* ══ Type-scale MODE · Tablet (≤991px) ══ */
+    @media(max-width:991px){
+      :root{
+        --fs-h1: 40px;
+        --fs-h2: 32px;
+        --fs-h3: 20px;
+        --fs-lead: 21px;
+        --fs-body: 17px;
+        --fs-small: 14px;
+      }
+    }
+
+    /* ══ Type-scale MODE · Mobile (≤600px) ══ */
+    /* ── Mobile refinements ── */
+    @media(max-width:600px){
+      :root{
+        --fs-h1: 28px;
+        --fs-h2: 24px;
+        --fs-h3: 19px;
+        --fs-lead: 18px;
+        --fs-body: 16.5px;
+        --fs-small: 13.5px;
+        --gutter: 20px;
+      }
+      .hero-title { font-size: clamp(58px,17vw,76px); }
+      .meet-life-img { aspect-ratio: 4 / 3; }
+      .meet-life-caption { font-size: var(--fs-small); }
+    }
+    @media(max-width:640px){
+      #site-footer { padding: 52px 24px 40px; }
+      .foot-top { flex-direction: column; align-items: flex-start !important; gap: 34px !important; margin-bottom: 40px !important; }
+      .foot-right { flex-direction: column; gap: 30px !important; align-items: flex-start; width: 100%; }
+      .foot-cta { align-items: flex-start !important; }
+      .foot-bottom { gap: 22px !important; }
+      .foot-logos { gap: 8px !important; flex-wrap: nowrap !important; }
+      .foot-logos a { height: auto !important; padding: 6px 10px !important; }
+      .foot-logos img { height: 22px !important; }
+    }
+
+    /* ── Misc ───────────────────────────────────────────── */
+    .divider-h { height:1px; background: linear-gradient(90deg, transparent, var(--cream-alt), transparent); margin: 0 28px; }
+    @media(max-width:640px){ .section,.section-sm,.section-bg { padding-left:20px; padding-right:20px; } }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <button class="nav-brand" onclick="go('home')" aria-label="Tanya Gordon — Home">
+      <img src="brand_assets/Logo_TG.svg" alt="">
+      <span class="nav-brand-text"><span>Tanya Gordon</span><span>Psychotherapy</span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <button class="nl" data-page="home"   onclick="go('home')">Home</button>
+      <button class="nl" data-page="meet"   onclick="go('meet')">Meet Tanya</button>
+      <button class="nl" data-page="young"  onclick="go('young')">For Young People</button>
+      <button class="nl" data-page="adults" onclick="go('adults')">For Adults</button>
+      <button class="nl" data-page="neuro"  onclick="go('neuro')">For Neurodivergence</button>
+      <button class="nl cta" onclick="go('connect')">Connect with Me</button>
+    </div>
+    <button class="hamburger" id="burger" onclick="mobToggle()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mob-menu">
+  <div class="mob-top">
+    <span class="mob-brand"><img src="brand_assets/Logo_TG.svg" alt=""><span class="nav-brand-text"><span>Tanya Gordon</span><span>Psychotherapy</span></span></span>
+    <button class="mob-close" onclick="mobToggle()" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <nav class="mob-links">
+    <button class="mob-link" data-page="home" onclick="go('home');mobToggle()">Home</button>
+    <button class="mob-link" data-page="meet" onclick="go('meet');mobToggle()">Meet Tanya</button>
+    <button class="mob-link" data-page="young" onclick="go('young');mobToggle()">For Young People</button>
+    <button class="mob-link" data-page="adults" onclick="go('adults');mobToggle()">For Adults</button>
+    <button class="mob-link" data-page="neuro" onclick="go('neuro');mobToggle()">For Neurodivergence</button>
+  </nav>
+  <div class="mob-foot">
+    <button class="btn btn-lime" onclick="go('connect');mobToggle()">Connect with Me</button>
+    <a class="mob-email" href="mailto:hello@tanyagordontherapy.com">hello@tanyagordontherapy.com</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     PAGE · HOME
+════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="home-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="home-hero-inner">
+      <p class="eyebrow rv">MA&nbsp;&nbsp;MBACP&nbsp;&nbsp;UKCP</p>
+      <h1 class="hero-title rv d1">Hi, I'm <em>Tanya</em>...</h1>
+      <div class="hero-copy rv d1">
+        <p class="hero-lead">a psychotherapist supporting young people, families and adults. I work in private practice and specialist educational settings.</p>
+        <p class="hero-sub">Whether you're at a crossroads, a parent at capacity, or a young person who is overwhelmed, I can help you make sense of what's going on and find a way through.</p>
+      </div>
+      <div class="hero-locations rv d2">Highgate&nbsp; · &nbsp;Barnet&nbsp; · &nbsp;Online</div>
+      <div class="hero-cta rv d3">
+        <button class="btn btn-lime" onclick="go('connect')">Get in Touch</button>
+        <button class="btn btn-outline" onclick="go('meet')">Learn more about me</button>
+      </div>
+    </div>
+
+    <!-- Interactive water-line: still → wavy → settles on a slow loop, ripples where the mouse passes -->
+    <div class="hero-anim rv d3" aria-hidden="true">
+      <canvas id="waterline" class="waterline" data-amp="0.26"></canvas>
+    </div>
+  </section>
+
+  <!-- Intro strip -->
+  <section class="intro-strip">
+    <p class="rv intro-statement">My personalised, <span class="rust-word">heart-led</span> approach draws on clinical training and lived experience, including parenting three sensitive, strong-willed children.</p>
+  </section>
+
+  <!-- Service cards -->
+  <section class="services">
+    <div class="services-inner">
+      <div class="rv services-head">
+        <span class="eyebrow eyebrow-lime">How I can help</span>
+        <p class="services-intro">I work with fear, trauma, loss and periods of uncertainty, with particular experience supporting neurodivergent individuals and their families.</p>
+      </div>
+
+      <div class="svc-grid">
+        <div class="svc-card rv" role="button" tabindex="0" aria-label="Young People and Families" onclick="go('young')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('young')}">
+          <div class="svc-content">
+            <p class="svc-desc">Supporting children, adolescents, and parents through behaviour, identity, family dynamics, and the complexities of growing up.</p>
+          </div>
+          <div class="svc-bottom">
+            <span class="svc-label">For Young People</span>
+            <svg class="svc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="svc-card rv d1" role="button" tabindex="0" aria-label="For Adults" onclick="go('adults')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('adults')}">
+          <div class="svc-content">
+            <p class="svc-desc">Honest conversations for adults navigating crossroads, anxiety, trauma, grief, or simply feeling like life isn't quite working.</p>
+          </div>
+          <div class="svc-bottom">
+            <span class="svc-label">For Adults</span>
+            <svg class="svc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="svc-card rv d2" role="button" tabindex="0" aria-label="Neurodivergence" onclick="go('neuro')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('neuro')}">
+          <div class="svc-content">
+            <p class="svc-desc">A neuro-affirming space for autistic, ADHD, AuDHD and dyslexic individuals — diagnosed, self-identified, or currently exploring.</p>
+          </div>
+          <div class="svc-bottom">
+            <span class="svc-label">For Neurodivergence</span>
+            <svg class="svc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  
+<section class="cta-band">
+    <div class="cta-inner rv">
+      
+      <p class="cta-text">I offer a free 10-minute consultation call so we can talk through what you're looking for and see if I am the right fit.</p>
+      <button class="btn btn-lime" style="padding:16px 38px;" onclick="go('connect')">Connect with Me</button>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE · MEET TANYA
+════════════════════════════════════════════ -->
+<div id="page-meet" class="page">
+
+  <!-- Hero: portrait-led -->
+  <section class="meet-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="meet-hero-inner">
+      <div class="meet-portrait rv">
+        <img src="brand_assets/Gif_TG.gif" alt="Tanya Gordon, psychotherapist">
+      </div>
+      <div class="meet-hero-copy">
+        <span class="eyebrow eyebrow-lime rv">Meet Tanya</span>
+        <h1 class="meet-hero-title rv d1"><strong>I'm Tanya,</strong> a UKCP and BACP accredited psychotherapist, originally trained in Integrative Child and Adolescent Art Psychotherapy.</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="meet-bio">
+    <div class="meet-bio-inner">
+      <p class="rv">I work with adults, adolescents, young people, offering a warm, relational, authentically human and trauma-informed approach. People I support describe feeling <span class="hl">met on their level</span>, having a space where they can offload and be open and honest in a way that feels natural.</p>
+      <p class="rv">Feeling held through periods of uncertainty has shaped my understanding that we flourish when we feel supported. My experience as a mother of three children, navigating the complexities of family life has deeply influenced how I attune to the pressures that many of us face.</p>
+      <p class="rv">I have particular experience working with neurodivergent adolescents and adults, including those exploring identity, autonomy, difference or late diagnosis. Two of my children are neurodivergent which has given me a felt experience of being alongside those we love whilst navigating education and statutory processes.</p>
+    </div>
+  </section>
+
+  <!-- Voice / signature -->
+  <section class="voice">
+    <p class="rv">If you're looking for a therapist who nods and avoids questions, then I might not be the therapist for you. I'm curious, approachable and direct. I often use humour and sometimes a touch of <span class="rust-word">colourful language</span>.</p>
+  </section>
+
+  <!-- Outside of work -->
+  <section class="meet-life">
+    <div class="meet-life-inner">
+      <div class="meet-life-img rv">
+        <img src="brand_assets/Meet_T.jpg" alt="Tanya Gordon">
+      </div>
+      <p class="meet-life-caption rv">My journey to become a therapist started later in life and I love my job. Outside of work, I adore family life, friendships, playing games, the quiet magic of sunlight through trees on forest walks with my labrador, a great book, bingeing a good TV series, creative writing and exploring the mystery of life.</p>
+    </div>
+  </section>
+
+  <!-- How I Work / My Experience -->
+  <section class="meet-acc">
+    <div class="meet-acc-inner">
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false">
+          <span>How I Work</span>
+          <svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Authentic connection sits at the heart of my practice. From this shared foundation, we can gently explore the messy reality of being human. I meet you with warmth and honesty, so you can feel met as you are.</p>
+          <p>My approach is collaborative and people describe feeling worked with rather than "treated". My face-to-face spaces are beautiful, homely and eclectic, rather than clinical settings.</p>
+          <p>Integrative therapy means I adapt my approach to you, rather than trying to fit you into a pre-existing model. We will make sense of what's happening internally and in your relationships.</p>
+          <p>The work moves at your pace, with no pressure to perform; we follow what feels helpful, whether that's through words, shared humour, or creative expression. Clients express that this helps them feel less overwhelmed and more able to make sense of things in their own way.</p>
+          <p>I collaborate with parents, families, and educational systems to advocate for you where helpful.</p>
+        </div></div>
+      </div>
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false">
+          <span>My Experience</span>
+          <svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>I have supported clients with a wide range of mental health and developmental challenges, including anxiety, depression, trauma, OCD, Autism, ADHD and AuDHD.</p>
+          <ul class="blist">
+            <li><div><strong>Clinical Settings:</strong> <span>Delivered one-to-one therapy within private practice, charities, mainstream schools, and specialist neurodivergent provisions (The Holmewood School).</span></div></li>
+            <li><div><strong>Systemic Insight:</strong> <span>Shadowing neurodevelopmental teams at the Maudsley Hospital (CAMHS) gave me a deep understanding of NHS referral pathways, assessment processes and post-diagnostic support.</span></div></li>
+            <li><div><strong>Collaborative Practice:</strong> <span>I frequently work alongside multi-disciplinary teams including OTs, Speech &amp; Language Therapists, and school-based SEND/Wellbeing teams.</span></div></li>
+            <li><div><strong>Parental Support:</strong> <span>I have created and facilitated parenting courses for schools and a London-based charity.</span></div></li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What My Approach Might Include -->
+  <section class="meet-approach">
+    <div class="meet-approach-inner">
+      <div class="meet-approach-head rv">
+        
+        <h2>What My Approach Might Include</h2>
+        <p>I draw from a range of evidence-based approaches, which we can blend to suit your needs:</p>
+      </div>
+      <div class="approach-grid2">
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg></span><strong>Psychodynamic &amp; Attachment-based</strong><p>Exploring how early experiences shape your present patterns and relationships.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/></svg></span><strong>Humanistic, Gestalt &amp; Transactional Analysis</strong><p>Focusing on the "here and now," personal autonomy, and understanding your internal dynamics.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6z"/></svg></span><strong>Trauma-informed Practice</strong><p>Prioritising safety, trust, and emotional readiness above all else.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span><strong>Creative &amp; Play-based</strong><p>Using art, play, and sandtray to express what words sometimes cannot.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></span><strong>Creative Visualisation &amp; Mindfulness</strong><p>Helpful tools for grounding and self-reflection.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2.5 7 4-14 2.5 7H21"/></svg></span><strong>Somatic &amp; Body-based</strong><p>Focusing on the mind-body connection to support regulation and nervous system safety.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.7c.6.6.8 1.2.8 2.3h6c0-1.1.2-1.7.8-2.3A6 6 0 0 0 12 3z"/></svg></span><strong>CBT-informed Tools</strong><p>Practical, flexible strategies to support your understanding, calm spiralling and help you cope.</p></div>
+        <div class="appro-card rv"><span class="appro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><strong>Family &amp; Systemic Approaches</strong><p>Understanding your experiences within wider relationships and environments, including NVR-informed strategies for parents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="meet-creds">
+    <div class="meet-creds-inner">
+      
+      <h2 class="rv">Qualifications &amp; Registrations</h2>
+      <div class="qual-grid">
+        <div class="qual-card rv"><p class="qual-label">Accreditation</p><p class="q">UKCP and BACP Accredited Psychotherapist.</p></div>
+        <div class="qual-card rv"><p class="qual-label">Clinical Training</p><p class="q">Masters from the Institute for Arts and Therapy in Education (IATE) as a Child &amp; Adolescent Integrative Arts Psychotherapist.</p></div>
+        <div class="qual-card rv"><p class="qual-label">Specialist Diploma</p><p class="q">Postgraduate Diploma in Integrative Child and Adolescent Counselling.</p></div>
+        <div class="qual-card rv"><p class="qual-label">Governance</p><p class="q">Fully insured, Enhanced DBS check, registered with the ICO. All sessions follow the ethical codes of my accrediting bodies.</p></div>
+      </div>
+      <h3 class="rv">Additional Professional Development</h3>
+      <ul class="cpd-list">
+        <li class="rv"><span class="mk">&#10022;</span><span><strong>Neurodivergence &amp; Sensory:</strong> Training via NAS and ACAMH, including Autism and Women and Autism and Anxiety (Tony Attwood).</span></li>
+        <li class="rv"><span class="mk">&#10022;</span><span><strong>Trauma &amp; Anxiety:</strong> Certified Clinical Anxiety Treatment Professional (CCATP), specialised CBT-informed tools and Person-Centred Counselling for Depression (BACP).</span></li>
+        <li class="rv"><span class="mk">&#10022;</span><span><strong>Family &amp; Education:</strong> NVR-informed (Non-Violent Resistance) foundation training, EBSA (Sunflower Network).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Close CTA -->
+  
+<section class="cta-band">
+    <div class="cta-inner rv">
+      <p class="cta-text">If it feels like I might be the right fit, I offer a free 10-minute consultation call so we can talk through what you're looking for.</p>
+      <button class="btn btn-lime" style="padding:16px 38px;" onclick="go('connect')">Get in touch</button>
+    </div>
+  </section>
+
+</div><!-- /page-meet -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE · YOUNG PEOPLE & FAMILIES
+════════════════════════════════════════════ -->
+<div id="page-young" class="page">
+
+  <!-- Hero: animated quote -->
+  <section class="young-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="young-hero-inner">
+      <span class="eyebrow eyebrow-lime rv" style="margin-bottom:28px;">For Young People &amp; Families</span>
+      <h1 id="tw-young"></h1>
+      <button class="young-scroll tw-reveal" onclick="document.getElementById('young-content').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Who I support (full-width tabs, click to reveal) -->
+  <section class="young-support" id="young-content">
+    <div class="ftabs-inner">
+      <div class="ftabs" role="tablist">
+        <button class="ftab" aria-expanded="false" onclick="openFtab(0)"><span class="ftab-t">Children</span><span class="ftab-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></button>
+        <button class="ftab" aria-expanded="false" onclick="openFtab(1)"><span class="ftab-t">Adolescents</span><span class="ftab-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></button>
+        <button class="ftab" aria-expanded="false" onclick="openFtab(2)"><span class="ftab-t">Parents</span><span class="ftab-ind" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></button>
+        <span class="ftab-marker" aria-hidden="true"></span>
+      </div>
+      <div class="ftab-panel">
+        <div class="fpanel"><h3>Supporting Children</h3><div class="fp-text"><p>Children often communicate their inner world through behaviour and play long before they have the words. I often work with children to help confusing feelings and upsetting experiences be safely expressed. Through creative and sensory approaches that might include play, art, sand tray, we build emotional understanding and support regulation.</p></div></div>
+        <div class="fpanel"><h3>Supporting Adolescents</h3><div class="fp-text"><p>Knowing your child has a space where they can offload what's been building up during the week can make things feel more manageable at home, reducing the sense of pressure for everyone.</p><p>If your adolescent is anxious, overwhelmed, or hard to reach, I help them to feel calmer and more able to engage with life. Over time, at their pace, this can help them feel less alone and more able to express themselves.</p><p>We may explore identity, emotions and relationships, while gently developing ways to manage stress.</p></div></div>
+        <div class="fpanel"><h3>Supporting Parents</h3><div class="fp-text"><p>Today's family structures can leave us feeling isolated, with little guidance.</p><p>Families often describe our work as collaborative, thoughtful, and balanced. We begin by understanding what your child needs, sometimes starting together as a family. Over time, children often move from feeling overwhelmed and dysregulated to recognising their own signals, grounding themselves, and engaging more fully in everyday life.</p><p>Together, we explore what your child may be communicating, so responses feel less reactive. Parents often feel less stuck and more confident, with greater clarity about how to meet their child's needs.</p><p>Supporting sensitive or neurodivergent children often means holding the adults who love them. I help you find the balance between independence and support, while also navigating external systems with greater perspective and understanding.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="young-faq">
+    <div class="young-faq-inner">
+      
+      <h2 class="rv">Frequently Asked Questions</h2>
+
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false">
+          <span>How does parent &amp; family support help?</span>
+          <svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <ul class="blist">
+            <li><div><strong>Deepening Connection:</strong> <span>Strengthening the bond between you and your child.</span></div></li>
+            <li><div><strong>Decoding Behaviour:</strong> <span>Understanding what "difficult" behaviour is actually trying to express, using a trauma-informed, non-punitive lens.</span></div></li>
+            <li><div><strong>Navigating Conflict:</strong> <span>Moving from cycles of aggression or shutdown toward genuine relational repair.</span></div></li>
+            <li><div><strong>Meeting Anxiety:</strong> <span>Learning how to gently support your child in expanding their comfort zone.</span></div></li>
+            <li><div><strong>The Tightrope Balance:</strong> <span>Finding the sweet spot between providing necessary scaffolding and encouraging age-appropriate independence.</span></div></li>
+            <li><div><strong>Navigating Modern Challenges:</strong> <span>Practical support for screen-time management and digital well-being.</span></div></li>
+            <li><div><strong>Neuro-affirming Advocacy:</strong> <span>Implementing strategies that work with your child.</span></div></li>
+            <li><div><strong>Growth:</strong> <span>Support does not mean stagnation; boundaries, growth and change are part of the process.</span></div></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false">
+          <span>What can we explore together?</span>
+          <svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <ul class="blist">
+            <li><div><strong>Emotional &amp; Sensory Needs:</strong> <span>Fear, panic, overwhelm, shutdown, and emotional regulation.</span></div></li>
+            <li><div><strong>Neurodivergence &amp; Executive Functioning:</strong> <span>Support with planning, organisation, initiation, working memory, and time management.</span></div></li>
+            <li><div><strong>Communication &amp; Relationships:</strong> <span>Navigating family stress, separation, divorce, and communication differences.</span></div></li>
+            <li><div><strong>Identity &amp; Transition:</strong> <span>Life stages from childhood to adolescence, moving away from home, and university transitions (including DSA processes).</span></div></li>
+            <li><div><strong>Managing Difficult Feelings:</strong> <span>Coping with low mood, stress, grief, loss, and self-harm.</span></div></li>
+            <li><div><strong>Specialised Areas:</strong> <span>Support for Emetophobia and complex trauma.</span></div></li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get Started -->
+  
+<section class="young-start">
+    <div class="young-start-inner">
+      
+      <h2 class="rv">How to Get Started</h2>
+      <p class="young-start-intro rv">We begin with a free 10-minute consultation so we can talk through your needs and see if I am the right fit for your family.</p>
+      <div class="steps-grid">
+        <div class="step-card rv"><div class="gs-num">1</div><div class="step-inner"><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.9 19.79 19.79 0 0 1 1.62 3.27 2 2 0 0 1 3.6 1.07h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><h3>Enquire</h3><p>Get in touch to arrange your free 10-minute consultation call.</p></div></div>
+        <div class="step-card rv d1"><div class="gs-num">2</div><div class="step-inner"><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>Talk it through</h3><p>We'll explore what you're looking for and answer any questions you have.</p></div></div>
+        <div class="step-card rv d2"><div class="gs-num">3</div><div class="step-inner"><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><h3>Book your Parent Intake</h3><p>We'll book an extended 1.5-hour session to understand your family's context and current challenges.</p></div></div>
+        <div class="step-card rv d3"><div class="gs-num">4</div><div class="step-inner"><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><h3>Assessment Period</h3><p>We begin with a few initial sessions before committing to ongoing, regular work.</p></div></div>
+      </div>
+      <div class="young-start-cta rv">
+        <button class="btn btn-lime" onclick="go('connect')">Get in touch</button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-young -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE · FOR ADULTS
+════════════════════════════════════════════ -->
+<div id="page-adults" class="page">
+
+  <!-- Hero: animated quote -->
+  <section class="adults-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="adults-hero-inner">
+      <span class="eyebrow eyebrow-lime rv" style="margin-bottom:28px;">For Adults</span>
+      <h1 id="tw-adults"></h1>
+      <button class="young-scroll tw-reveal" onclick="document.getElementById('adults-content').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Intro statement -->
+  <section class="adults-intro" id="adults-content">
+    <div class="adults-intro-inner">
+      <h2 class="rv">Honest Conversations.<br>Human Connection.</h2>
+      <p class="rv">If you're tired of holding everything in and trying to keep it together, I offer a place where you can feel heard and understood. We may explore what sits underneath a sense of overwhelm and difficult thoughts. Seeking support takes courage; here you can untangle what's really going on, at your own pace, allowing things to unfold naturally.</p>
+    </div>
+  </section>
+
+  <!-- Navigating 20s & 30s -->
+  <section class="adults-nav2030">
+    <div class="adults-nav2030-inner">
+      <div class="n2030-head rv">
+        
+        <h2>Navigating your 20s &amp; 30s</h2>
+      </div>
+      <div class="n2030-text rv">
+        <p>Maybe it seems like everyone else has a plan, while inside you're caught in cycles of anxious thinking, spiralling or quietly panicking about where your life is going. Maybe you're scrolling through other people's careers, relationships, milestones, and putting pressure on yourself.</p>
+        <p>We'll work to help you make sense of things, whether you're moving through university, navigating work or managing the complexities of modern relationships.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas of Support -->
+  <section class="adults-areas">
+    <div class="adults-areas-inner">
+      <div class="adults-areas-head rv">
+        
+        <h2>What I can help with</h2>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card rv"><h3>Neurodivergence &amp; University Support</h3><p>Specialist insight into DSA processes, neuro-affirming study strategies and navigating university transitions.</p></div>
+        <div class="area-card rv"><h3>Emotional Wellbeing</h3><p>Fear, panic, overwhelm, shutdown and emotional regulation. Coping with depression, low mood, grief, bereavement, and chronic stress or health-related challenges.</p></div>
+        <div class="area-card rv"><h3>Trauma</h3><p>Prioritising safety and nervous system regulation.</p></div>
+        <div class="area-card rv"><h3>Life Transitions</h3><p>Navigating the shift from adolescence to adulthood, moving away from home and workplace or relationship changes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Close CTA -->
+  
+<section class="cta-band">
+    <div class="cta-inner rv">
+      <p class="cta-text">I offer a free 10-minute consultation call so we can talk through what you're looking for and see if I am the right fit.</p>
+      <button class="btn btn-lime" style="padding:16px 38px;" onclick="go('connect')">Get in touch</button>
+    </div>
+  </section>
+
+</div><!-- /page-adults -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE · NEURODIVERGENCE
+════════════════════════════════════════════ -->
+<div id="page-neuro" class="page">
+
+  <!-- Hero: animated quote -->
+  <section class="neuro-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="neuro-hero-inner">
+      <span class="eyebrow eyebrow-lime rv" style="margin-bottom:28px;">Neurodivergence</span>
+      <h1 id="tw-neuro"></h1>
+      <button class="young-scroll tw-reveal" onclick="document.getElementById('neuro-content').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- A Neuro-Affirming Space -->
+  <section class="neuro-intro" id="neuro-content">
+    <div class="neuro-intro-inner">
+      <div class="rv"><h2>A Neuro-Affirming Space</h2></div>
+      <div class="ni-text rv">
+        <p>I work with neurodivergence in all its forms: whether diagnosed, self-identified, or currently being explored. This includes whether you are autistic, ADHD, AuDHD or dyslexic, navigating a world that isn't always set up for you. I help you to understand your strengths and challenges, so life can feel more manageable.</p>
+        <p>My experience within a specialist educational setting, working alongside neurodivergent young people, makes my work real. I continue to deepen my practice through current training in neuro-inclusivity.</p>
+        <p>I understand each person's unique way of experiencing the world as a natural human variation and I meet you with curiosity. I recognise the social and historical contexts around neurodivergence, including experiences of misunderstanding and harm and I prioritise your lived experience in the language that matters to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compassion & Challenge -->
+  <section class="neuro-work">
+    <div class="neuro-work-inner">
+      <div class="neuro-work-head rv">
+        
+        <h2>Compassion &amp; Challenge</h2>
+        <p>This is a space that holds both. While we lead with acceptance, care does not mean staying stuck. Together, we move towards understanding, regulation and change, at a pace that is manageable and respectful.</p>
+      </div>
+      <div class="work-grid">
+        <div class="work-card rv"><strong>Sensory &amp; Nervous System Safety</strong><p>Understanding your environment through the lens of regulation.</p></div>
+        <div class="work-card rv"><strong>The Masking Tax</strong><p>Processing the emotional exhaustion of performing for a neurotypical world.</p></div>
+        <div class="work-card rv"><strong>Executive Functioning Fingerprinting</strong><p>Creating personalised strategies for planning, organisation and time management that actually work for your brain.</p></div>
+        <div class="work-card rv"><strong>Identity</strong><p>Seeking a diagnosis or processing a new diagnosis.</p></div>
+        <div class="work-card rv"><strong>Burnout &amp; Transitions</strong><p>Managing workplace changes, university/school transitions or social processing fatigue.</p></div>
+        <div class="work-card rv"><strong>Authentic Communication</strong><p>Learning to advocate for your needs and finding ways to connect.</p></div>
+        <div class="work-card rv"><strong>Collaboration</strong><p>Partnership work with educational institutions to create environments that work for you.</p></div>
+      </div>
+      <div class="neuro-work-cta rv">
+        <button class="btn btn-lime" onclick="go('connect')">Connect with Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources & Links -->
+  
+<section class="neuro-res">
+    <div class="neuro-res-inner">
+      <div class="neuro-res-head rv">
+        
+        <h2>Resources &amp; Links</h2>
+        <p>A curated collection of neuro-affirming resources I find valuable.</p>
+      </div>
+      <div class="res-grid">
+        <a class="res-item rv" href="https://www.thsl.org.uk/copy-of-education" target="_blank" rel="noopener"><span class="res-txt"><strong>ND Pedagogy Neurodivergent Framework</strong><span>The Holmewood School</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://www.thsl.org.uk/copy-of-parent-wellbeing" target="_blank" rel="noopener"><span class="res-txt"><strong>ADHD and Autism, definitions and ways of working</strong><span>The Holmewood School</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://theautisticadvocate.com/autism-and-attachment-theory/" target="_blank" rel="noopener"><span class="res-txt"><strong>Attachment and Autism</strong><span>Autistic Advocate</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://autisticgirlsnetwork.org/knowledge_base_category/autistic-girls/" target="_blank" rel="noopener"><span class="res-txt"><strong>School Reasonable Adjustments, Neurodiverse</strong><span>Autistic Girls Network</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://www.ambitiousaboutautism.org.uk/what-we-do/services/i-am-an-autistic-young-person/wellbeing-toolkits/autistic-and-ok" target="_blank" rel="noopener"><span class="res-txt"><strong>Toolkit for Schools, Autistic and OK</strong><span>Ambitious About Autism</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://www.autismcentral.org.uk/guidance/video" target="_blank" rel="noopener"><span class="res-txt"><strong>Video blogs on regulation and autistic joy</strong><span>Autism Central</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://www.autismcentral.org.uk/news/blog-myth-autism-intervention" target="_blank" rel="noopener"><span class="res-txt"><strong>The myth of autism intervention</strong><span>Autism Central, Blog</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://youtu.be/qUFDAevkd3E" target="_blank" rel="noopener"><span class="res-txt"><strong>Monotropism</strong><span>Video</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://www.autismcentral.org.uk/events" target="_blank" rel="noopener"><span class="res-txt"><strong>Groups &amp; Events</strong><span>Autism Central</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://autisticgirlsnetwork.org/knowledge_base/autism-and-girls/" target="_blank" rel="noopener"><span class="res-txt"><strong>Autism and Girls</strong><span>Autistic Girls Network</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://autisticgirlsnetwork.org/knowledge_base_category/autistic-women/" target="_blank" rel="noopener"><span class="res-txt"><strong>Autism and Women</strong><span>Autistic Girls Network</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://autisticgirlsnetwork.org/knowledge_base/meltdowns-shutdowns-and-burnout/" target="_blank" rel="noopener"><span class="res-txt"><strong>Meltdowns, Shutdowns and Burnouts</strong><span>Autistic Girls Network</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+        <a class="res-item rv" href="https://theautisticadvocate.com/the-danger-of-misunderstanding-neuro-affirming-practice/" target="_blank" rel="noopener"><span class="res-txt"><strong>Neuro-affirming has to be real</strong><span>Autistic Advocate</span></span><span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-neuro -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE · CONNECT WITH ME
+════════════════════════════════════════════ -->
+<div id="page-connect" class="page">
+
+  <!-- Hero: animated quote -->
+  <section class="connect-hero">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="connect-hero-inner">
+      <span class="eyebrow eyebrow-lime rv" style="margin-bottom:28px;">Connect with Me</span>
+      <h1 id="tw-connect"></h1>
+      <p class="connect-attr tw-reveal">— D. W. Winnicott</p>
+      <button class="young-scroll tw-reveal" onclick="document.getElementById('connect-content').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Intro + steps -->
+  <section class="connect-intro" id="connect-content">
+    <div class="connect-intro-inner">
+      <p class="connect-lead rv">I offer a free 10-minute consultation call so we can talk through what you're looking for and see if I am the right fit to support you or your family.</p>
+      <div class="csteps">
+        <div class="cstep rv"><div class="cstep-num">1</div><div><h3>Enquire</h3><p>Get in touch via the form below to arrange your free 10-minute consultation call.</p></div></div>
+        <div class="cstep rv"><div class="cstep-num">2</div><div><h3>Talk it through</h3><p>We'll use this time to explore what you're looking for and answer any questions you have.</p></div></div>
+        <div class="cstep rv"><div class="cstep-num">3</div><div><h3>Getting started</h3><p>We begin with a few sessions to ensure our working relationship is the right fit, before committing to ongoing work.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section class="connect-form">
+    <div class="connect-form-inner">
+      
+      <h2 class="rv">Send me a message</h2>
+      <form id="contactForm" onsubmit="handleForm(event)" style="display:flex;flex-direction:column;gap:22px;">
+        <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+          <div>
+            <label class="flabel" for="fname">First Name <span class="req">*</span></label>
+            <input class="finput" type="text" id="fname" name="fname" required autocomplete="given-name">
+          </div>
+          <div>
+            <label class="flabel" for="lname">Last Name <span class="req">*</span></label>
+            <input class="finput" type="text" id="lname" name="lname" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="rv">
+          <label class="flabel" for="email">Email Address <span class="req">*</span></label>
+          <input class="finput" type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="rv">
+          <label class="flabel">Preferred Contact Method</label>
+          <div style="display:flex;gap:12px;">
+            <button type="button" class="contact-btn sel" onclick="selContact(this)">Email</button>
+            <button type="button" class="contact-btn" onclick="selContact(this)">Phone</button>
+          </div>
+        </div>
+        <div class="rv">
+          <label class="flabel" for="hear">How did you hear about me?</label>
+          <select class="fselect" id="hear" name="hear">
+            <option value="">Please select…</option>
+            <option>Search engine (Google etc.)</option>
+            <option>Personal recommendation</option>
+            <option>Psychology Today / Counselling Directory</option>
+            <option>Social media</option>
+            <option>School or GP referral</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="rv">
+          <label class="flabel" for="message">Anything you'd like me to know beforehand? <span class="opt">(Optional)</span></label>
+          <textarea class="ftextarea" id="message" name="message" placeholder="Share as much or as little as feels comfortable…"></textarea>
+        </div>
+        <div class="rv">
+          <button type="submit" class="btn btn-lime">Send message</button>
+        </div>
+      </form>
+      <div id="formSuccess" style="display:none;">
+        <h3>Message received</h3>
+        <p>Thank you for reaching out. I'll be in touch within 2 to 3 working days to arrange your free consultation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="connect-faq">
+    <div class="connect-faq-inner">
+      
+      <h2 class="rv">Frequently Asked Questions</h2>
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false"><span>Pricing</span><svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-body"><div class="acc-inner"><p>My fees are available upon request. Please get in touch for details.</p></div></div>
+      </div>
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false"><span>Locations</span><svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-body"><div class="acc-inner"><p>I see clients in Highgate and Barnet, and I also offer Online sessions for flexibility.</p></div></div>
+      </div>
+      <div class="acc-item rv">
+        <button class="acc-trigger" onclick="acc(this)" aria-expanded="false"><span>Do you accept insurance?</span><svg class="acc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-body"><div class="acc-inner"><p>I am registered with Bupa. Depending on your specific policy, you may be eligible to receive reimbursement for our sessions. Please check with your provider prior to starting.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+
+</div><!-- /page-connect -->
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER (global)
+════════════════════════════════════════════ -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="foot-top" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;margin-bottom:56px;">
+      <!-- Brand -->
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="brand_assets/Logo_TG.svg" alt="Tanya Gordon" style="height:46px;width:auto;display:block;flex-shrink:0;">
+        <div>
+          <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:500;color:rgba(245,240,232,.82);line-height:1.3;margin-bottom:3px;">Tanya Gordon</p>
+          <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:300;color:rgba(245,240,232,.45);line-height:1.3;">Psychotherapy</p>
+        </div>
+      </div>
+      <!-- Locations + CTA grouped right -->
+      <div class="foot-right" style="display:flex;align-items:flex-start;gap:64px;">
+        <!-- Locations -->
+        <div>
+          <p class="eyebrow eyebrow-lime" style="margin-bottom:14px;">Practice</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);color:rgba(245,240,232,.5);">Highgate, London</p>
+            <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);color:rgba(245,240,232,.5);">Barnet, London</p>
+            <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);color:rgba(245,240,232,.5);">Online sessions</p>
+          </div>
+        </div>
+        <!-- CTA -->
+        <div class="foot-cta" style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+          <a href="mailto:hello@tanyagordontherapy.com" style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:600;color:var(--lime);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f6f2ea'" onmouseout="this.style.color='var(--lime)'">hello@tanyagordontherapy.com</a>
+          <button onclick="go('connect')" style="display:inline-flex;align-items:center;gap:32px;background:none;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:500;color:rgba(245,240,232,.82);padding:0;transition:color .2s;" onmouseover="this.style.color='rgba(245,240,232,1)'" onmouseout="this.style.color='rgba(245,240,232,.82)'">
+            Get in touch
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--lime)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom" style="border-top:1px solid rgba(197,212,191,.12);padding-top:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <div class="foot-logos" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+        <a href="https://www.psychotherapy.org.uk" target="_blank" rel="noopener noreferrer" aria-label="UKCP — UK Council for Psychotherapy (opens in a new tab)" style="background:white;border-radius:8px;padding:8px 16px;display:inline-flex;align-items:center;height:52px;text-decoration:none;transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+          <img src="brand_assets/UKCP_Logo.svg" alt="UKCP Accredited" style="height:32px;width:auto;display:block;">
+        </a>
+        <a href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" aria-label="BACP — British Association for Counselling and Psychotherapy (opens in a new tab)" style="background:white;border-radius:8px;padding:8px 16px;display:inline-flex;align-items:center;height:52px;text-decoration:none;transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+          <img src="brand_assets/BACP_Logo.svg" alt="BACP Accredited" style="height:32px;width:auto;display:block;">
+        </a>
+        <a href="https://www.bupa.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Bupa (opens in a new tab)" style="background:white;border-radius:8px;padding:8px 16px;display:inline-flex;align-items:center;height:52px;text-decoration:none;transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+          <img src="brand_assets/BUPA_Logo.svg" alt="BUPA Registered" style="height:32px;width:auto;display:block;">
+        </a>
+      </div>
+      <p style="font-size: var(--fs-small);color:rgba(245,240,232,.3);">© 2026 Tanya Gordon Psychotherapy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Navigation ─────────────────────────────────── */
+const pages = ['home','meet','young','adults','neuro','connect'];
+
+function go(id) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.toggle('active', p === id);
+  });
+  document.querySelectorAll('.nl[data-page], .mob-link[data-page]').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.page === id);
+  });
+  document.getElementById('nav').classList.toggle('nav-dark', ['meet','young','adults','neuro','connect'].includes(id));
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Typewriter on dark-hero pages
+  if (['young','adults','neuro','connect'].includes(id)) {
+    setTimeout(() => typewriter(id), 350);
+  }
+  // Re-run reveal for new page
+  setTimeout(revealAll, 50);
+}
+
+/* ── Mobile menu ─────────────────────────────────── */
+function mobToggle() {
+  document.getElementById('mob-menu').classList.toggle('open');
+}
+
+/* ── Scroll shadow + dark-hero nav switch ─────────── */
+const darkHeroPages = ['meet','young','adults','neuro','connect'];
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('shadow', window.scrollY > 12);
+  // On dark-hero pages: switch back to light nav once scrolled past hero
+  const activeDark = darkHeroPages.find(p => document.getElementById('page-' + p)?.classList.contains('active'));
+  if (activeDark) {
+    const hero = document.querySelector('#page-' + activeDark + ' section, #page-' + activeDark + ' .quote-hero');
+    const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+    nav.classList.toggle('nav-dark', heroBottom > 0);
+  }
+});
+
+/* Initialise nav to match scroll position on load (fully transparent at top) */
+document.getElementById('nav').classList.toggle('shadow', window.scrollY > 12);
+
+/* ── Scroll reveal ───────────────────────────────── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+
+function revealAll() {
+  document.querySelectorAll('.rv:not(.in)').forEach(el => observer.observe(el));
+}
+revealAll();
+
+/* ── Support card trio ───────────────────────────── */
+function setTab(btn, i){
+  const root = btn.closest('.support-tabs-inner');
+  root.querySelectorAll('.stab').forEach((t,x)=>{ const on = x===i; t.classList.toggle('active',on); t.setAttribute('aria-selected', String(on)); });
+  root.querySelectorAll('.spanel').forEach((p,x)=>p.classList.toggle('active', x===i));
+}
+
+function moveFtabMarker(root, tab){
+  const m=root.querySelector(".ftab-marker");
+  if(!m) return;
+  if(!tab){ m.style.opacity="0"; return; }
+  const wasHidden = m.style.opacity!=="1";
+  if(wasHidden){ m.style.transition="none"; }
+  m.style.width=tab.offsetWidth+"px";
+  m.style.transform="translateX("+tab.offsetLeft+"px)";
+  m.style.opacity="1";
+  if(wasHidden){ requestAnimationFrame(function(){ m.style.transition=""; }); }
+}
+window.addEventListener("resize", function(){
+  const root=document.getElementById("young-content"); if(!root) return;
+  const active=root.querySelector(".ftab.active"), m=root.querySelector(".ftab-marker");
+  if(active&&m){ m.style.transition="none"; m.style.width=active.offsetWidth+"px"; m.style.transform="translateX("+active.offsetLeft+"px)"; requestAnimationFrame(function(){ m.style.transition=""; }); }
+});
+
+function openFtab(i){
+  const root=document.getElementById('young-content');
+  const tabs=root.querySelectorAll('.ftab');
+  const panels=root.querySelectorAll('.fpanel');
+  const wrap=root.querySelector('.ftab-panel');
+  const wasActive=tabs[i].classList.contains('active');
+  if(wasActive){
+    tabs[i].classList.remove('active'); tabs[i].setAttribute('aria-expanded','false');
+    root.classList.remove('panel-open');
+    moveFtabMarker(root, null);
+    wrap.style.maxHeight = wrap.scrollHeight + 'px';
+    requestAnimationFrame(function(){ wrap.style.maxHeight = '0'; });
+    setTimeout(function(){ if(!tabs[i].classList.contains('active')) panels[i].classList.remove('active'); }, 640);
+    return;
+  }
+  tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-expanded','false'); });
+  panels.forEach(function(p){ p.classList.remove('active'); });
+  tabs[i].classList.add('active'); tabs[i].setAttribute('aria-expanded','true');
+  panels[i].classList.add('active');
+  wrap.style.maxHeight = panels[i].scrollHeight + 'px';
+  root.classList.add('panel-open');
+  moveFtabMarker(root, tabs[i]);
+}
+
+function openSupportCard(key) {
+  const grid = document.getElementById('support-grid');
+  const cards = grid.querySelectorAll('.support-card');
+  const target = document.getElementById('sc-' + key);
+  const isAlreadyOpen = target.classList.contains('sc-open');
+
+  cards.forEach(card => {
+    card.classList.remove('sc-open');
+    const body = card.querySelector('.sc-body');
+    body.style.maxHeight = '0';
+    body.style.opacity = '0';
+    card.querySelector('.sc-arrow').textContent = '→';
+  });
+  grid.classList.remove('has-open');
+
+  if (!isAlreadyOpen) {
+    grid.classList.add('has-open');
+    target.classList.add('sc-open');
+    const body = target.querySelector('.sc-body');
+    body.style.maxHeight = body.scrollHeight + 200 + 'px';
+    target.querySelector('.sc-arrow').textContent = '↑';
+  }
+}
+
+/* ── Accordion ───────────────────────────────────── */
+function acc(trigger) {
+  const expanded = trigger.getAttribute('aria-expanded') === 'true';
+  // Close sibling accordions in the same section
+  const section = trigger.closest('section, [data-acc]');
+  if (section) {
+    section.querySelectorAll('.acc-trigger').forEach(t => {
+      if (t !== trigger) {
+        t.setAttribute('aria-expanded','false');
+        const b = t.nextElementSibling;
+        if (b) b.classList.remove('open');
+      }
+    });
+  }
+  // Toggle clicked item
+  trigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  const body = trigger.nextElementSibling;
+  if (body) body.classList.toggle('open', !expanded);
+}
+
+/* ── Typewriter animation ────────────────────────── */
+const twTexts = {
+  young:   '\u201cWhen we see people for who they are and what they want to express, new possibilities emerge\u201d',
+  adults:  '\u201cThe most important and often complex relationship is the one with yourself.\u201d',
+  neuro:   '\u201cFair isn\u2019t everybody getting the same thing, fair is everybody getting what they need in order to participate\u201d',
+  connect: '\u201cIt is a joy to be hidden, but a disaster not to be found\u201d'
+};
+let twTimer = null;
+
+function typewriter(id) {
+  const el = document.getElementById('tw-' + id);
+  if (!el) return;
+  const text = twTexts[id];
+  if (!text) return;
+
+  // Pre-measure: render full text invisibly to lock in height
+  el.style.visibility = 'hidden';
+  el.textContent = text;
+  el.style.minHeight = el.offsetHeight + 'px';
+  el.textContent = '';
+  el.style.visibility = '';
+
+  // Hide tw-reveal siblings until done
+  const reveals = el.parentElement.querySelectorAll('.tw-reveal');
+
+  if (twTimer) clearTimeout(twTimer);
+  el.innerHTML = '<span class="tw-cursor"></span>';
+
+  let i = 0;
+  const speed = 30;
+
+  function tick() {
+    if (i <= text.length) {
+      const cursor = i < text.length ? '<span class="tw-cursor"></span>' : '';
+      el.innerHTML = text.slice(0, i) + cursor;
+      i++;
+      twTimer = setTimeout(tick, speed);
+    } else {
+      // Fade in each tw-reveal element in sequence
+      reveals.forEach((r, i) => {
+        setTimeout(() => { r.style.opacity = '1'; }, 300 + i * 400);
+      });
+    }
+  }
+  tick();
+}
+
+/* ── Quote word animation ────────────────────────── */
+function animateQuote(pageId) {
+  const idMap = { young:'qyoung', adults:'qadults', neuro:'qneuro', connect:'qconnect' };
+  const el = document.getElementById(idMap[pageId]);
+  if (!el || !el.classList.contains('aq')) return;
+  // Remove reveal class — we control visibility via word spans
+  el.classList.remove('rv');
+  el.style.opacity = '1';
+  el.style.transform = 'none';
+  const text = el.textContent.trim();
+  const words = text.split(' ');
+  el.innerHTML = words.map((w, i) =>
+    `<span style="animation-delay:${i * 0.07}s">${w} </span>`
+  ).join('');
+}
+
+/* ── Contact method select ───────────────────────── */
+function selContact(btn) {
+  btn.closest('div').querySelectorAll('.contact-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+/* ── Form submit ─────────────────────────────────── */
+function handleForm(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+/* ── Init ────────────────────────────────────────── */
+document.querySelector('.nl[data-page="home"]').classList.add('on');
+
+/* ── Hero water-line ──────────────────────────────────────────────
+   One unbroken pen stroke, always: calm sea -> a swell gathers and
+   travels right -> the crest rolls over as a logarithmic spiral,
+   crosses itself into a loop, and dissolves -> the whole line runs
+   wild, then settles. See waterline-animation-brief.md.
+   Config (data-*): amp .26 | period 19 | crest 1.7 | calm .20 |
+   sw .15 | amb .17 | width 1.6 | color | points 220 | phase 0 |
+   curl 1 (0 = plain collapse, no roll) | spray 1 (0 = none) */
+function initWaterline(canvas){
+  const ctx = canvas.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const d = canvas.dataset;
+  const N      = parseInt(d.points || '220', 10);
+  const amp    = parseFloat(d.amp    || '0.26');
+  const period = parseFloat(d.period || '19');
+  const crestG = parseFloat(d.crest  || '1.7');
+  const calmF  = parseFloat(d.calm   || '0.20');
+  const swW    = parseFloat(d.sw     || '0.15');
+  const ambK   = parseFloat(d.amb    || '0.17');
+  const lw     = parseFloat(d.width  || '1.6');
+  const color  = d.color || 'rgba(246,242,234,0.5)';
+  const curlK  = parseFloat(d.curl  || '1');
+  const sprayK = parseFloat(d.spray || '1');
+  const t0 = performance.now() - parseFloat(d.phase || '0') * 1000;
+
+  const act = 1 - calmF;              // active (wave present) fraction of the cycle
+  const P_BREAK = 0.88;               // build | break split within the active window
+  const PITCH = 0.32, CLOSE = 0.60;   // break stages: pitch-over | close-out | wash
+
+  let W = 0, H = 0, dpr = 1;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width  = Math.max(1, Math.round(W * dpr));
+    canvas.height = Math.max(1, Math.round(H * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+
+  const ss     = v => { v = Math.min(1, Math.max(0, v)); return v * v * (3 - 2 * v); };
+  const ease   = a => a < .5 ? 2*a*a : 1 - Math.pow(-2*a + 2, 2) / 2;
+  const sech   = x => { const e = Math.exp(x); return 2 / (e + 1/e); };
+  const stokes = (th, s) => Math.cos(th) + s * 0.5 * Math.cos(2*th); // pinched crest, flat trough
+
+  /* ── Wave state: every value continuous across every seam ── */
+  let swellH = 0, swellX = 1.4, lean = 0, peak = 2, suck = 0;
+  let roll = 0, closeK = 0, foam = 0, foamX = 1.4, foamW = .15, wild = 0, breakP = -1;
+  function state(t){
+    const tp = ((t % period) + period) % period / period;   // 0..1 in cycle
+    roll = 0; suck = 0; closeK = 0; breakP = -1;
+    // after the lip lands, agitation spreads over the WHOLE line, then decays
+    const tImp = act * (P_BREAK + PITCH * (1 - P_BREAK));
+    wild = 0;
+    if (tp > tImp){
+      const u = (tp - tImp) / (1 - tImp);
+      wild = Math.min(u / 0.08, 1) * Math.pow(Math.max(0, 1 - u / 0.80), 1.35);
+    }
+    if (tp >= act){ swellH = 0; foam = 0; swellX = 1.4; return; }  // calm (wild fades through it)
+    const p = tp / act;
+    if (p < P_BREAK){
+      /* BUILD: slow gather, late surge; face leans, crest narrows, sea ahead is drawn down */
+      const b = p / P_BREAK;
+      swellH = Math.pow(b, 2.1);
+      lean   = 1.05 * b * b;
+      swellX = -0.30 + 1.12 * ease(b);
+      suck   = Math.pow(Math.max(0, (b - 0.55) / 0.45), 2);
+      roll   = curlK * 0.55 * Math.pow(Math.max(0, (b - 0.82) / 0.18), 2); // crest starts tipping
+      peak   = 2 + 4.8 * b * b - 3.2 * Math.min(roll, 1);   // …and rounds as it tips
+      foam   = 0;
+    } else {
+      const c = (p - P_BREAK) / (1 - P_BREAK);              // 0..1 across the break
+      breakP = c;
+      if (curlK <= 0){
+        /* fallback (data-curl="0"): plain near-vertical collapse + foam burst */
+        swellH = Math.max(0, 1 - Math.pow(c, 0.28));
+        lean   = 1.05 * Math.max(0, 1 - c * 2);
+        peak   = 2 + 4.8 * Math.max(0, 1 - c * 2.4);
+        swellX = 0.82 + 0.22 * c;
+        foamX  = 0.82 + 0.34 * c;  foamW = 0.08 + 0.42 * c;
+        foam   = Math.min(c / 0.05, 1) * Math.pow(1 - c, 1.3);
+      } else if (c < PITCH){
+        /* PITCH-OVER: height holds while the crest rolls forward into the open hook */
+        const k = c / PITCH;
+        swellH = 1 - 0.18 * k;
+        lean   = 1.05 + 0.25 * k;
+        swellX = 0.82 + 0.03 * k;
+        suck   = 1 - k;
+        roll   = curlK * (0.55 + 0.45 * Math.pow(k, 0.7));
+        peak   = 6.8 - 3.2 * Math.min(roll, 1);
+        foam   = Math.max(0, (k - 0.75) / 0.25) * 0.5;      // whitewater ignites at the lip
+        foamX  = 0.86;  foamW = 0.10;
+      } else if (c < CLOSE){
+        /* CLOSE-OUT: the mass ROLLS UP and drives forward-down; loop crosses itself */
+        const e = ss((c - PITCH) / (CLOSE - PITCH));
+        closeK = e;
+        swellH = 0.82 - 0.17 * e;
+        lean   = 1.30;  peak = 3.6;
+        swellX = 0.85 + 0.06 * e;
+        roll   = curlK;
+        foam   = 0.5 + 0.5 * e;
+        foamX  = 0.86 + 0.08 * e;  foamW = 0.10 + 0.10 * e;
+      } else {
+        /* WASH: the loop shrinks to a knot riding the whitewater mound, and dissolves */
+        const cc = (c - CLOSE) / (1 - CLOSE);
+        const e = ss(cc);
+        closeK = 1;
+        swellH = 0.65 * (1 - e);
+        lean   = 1.30 * (1 - e);
+        peak   = 3.6;
+        swellX = 0.91 + 0.13 * cc;
+        roll   = curlK * Math.max(0, 1 - cc * 3.5);
+        foamX  = 0.94 + 0.20 * cc;  foamW = 0.20 + 0.28 * cc;
+        foam   = Math.pow(1 - cc, 1.1);
+      }
+    }
+  }
+
+  /* ── Surface: ambient sea + swell, sampled once per frame ──
+     ys = drawn surface; cr = the crest's own contribution (px), kept
+     separately so the face can flow INTO the roll instead of the field. */
+  const xs = new Float32Array(N), ys = new Float32Array(N), cr = new Float32Array(N);
+  function surface(t){
+    const S = H * amp, q = Math.min(roll, 1), mid = H * 0.56;
+    const energy = 0.26 + 0.74 * swellH + 3.4 * wild;       // never 0: calm still shimmers
+    for (let i = 0; i < N; i++){
+      const nx = i / (N - 1);
+      // travelling ambient waves (dispersion: long = fast) + post-impact turbulence
+      let amb = stokes(nx*10 - t*2.1, .35) * .5
+              + stokes(nx*17 - t*2.9, .22) * .3
+              + Math.sin(nx*27 + t*3.6) * .2
+              + (stokes(nx*23 - t*4.6, .3) * .55
+              +  Math.sin(nx*44 - t*7.5) * .30
+              +  Math.sin(nx*71 + t*10 ) * .16) * wild;
+      amb *= ambK * energy * (1 - 0.85 * q * sech((nx - swellX) / (swW * 2.5))); // clean near the roll
+      // the swell: asymmetric solitary hump, narrowing to a peak as it breaks
+      let dx = nx - swellX;
+      dx *= dx > 0 ? 1 + lean : 1 - lean * 0.45;
+      dx *= 1 + 0.35 * q;
+      const pk = Math.pow(sech(dx / swW), peak);
+      const crest = (swellH * pk * crestG + Math.sin(nx*58 - t*4.2) * 0.10 * pk * (1 - 0.8 * q)) * S;
+      // whitewater chop, masked out of the barrel so the curl stays legible
+      let foamY = 0;
+      if (foam > 0.001){
+        const fe = Math.exp(-Math.pow((nx - foamX) / foamW, 2));
+        foamY = foam * fe * (Math.sin(nx*88 - t*9)*.5 + Math.sin(nx*150 + t*12)*.3 + Math.sin(nx*215 - t*16)*.2)
+              * 0.7 * (1 - 0.7 * q * sech((nx - swellX) / (swW * 1.2)));
+      }
+      // drawdown ahead of the wave just before it breaks
+      const trough = suck * swellH * sech((nx - swellX - swW*2.1) / (swW*1.5)) * 0.13 * crestG;
+      xs[i] = nx * W;
+      cr[i] = crest;
+      ys[i] = mid + (amb + foamY + trough) * S - crest;
+    }
+  }
+
+  /* ── The curl: one log spiral embedded in the stroke ── */
+  let anchor = null;                                        // temporally smoothed apex
+  function curlGeom(dt){
+    if (roll < 0.03 || swellH < 0.08 || swellX <= 0 || swellX >= 1){ anchor = null; return null; }
+    const lo = Math.max(1, Math.floor((swellX - swW*2) * (N-1)));
+    const hi = Math.min(N - 2, Math.ceil((swellX + swW*2) * (N-1)));
+    let ti = lo;
+    for (let i = lo; i <= hi; i++) if (ys[i] < ys[ti]) ti = i;
+    // parabolic sub-sampling: the apex moves continuously, never grid-hops
+    const y0 = ys[ti-1], y1 = ys[ti], y2 = ys[ti+1];
+    const den = y0 - 2*y1 + y2;
+    const off = den ? Math.max(-.5, Math.min(.5, .5 * (y0 - y2) / den)) : 0;
+    let tx = xs[ti] + off * (W / (N-1)), ty = y1 - .25 * (y0 - y2) * off;
+    if (anchor){ const a = Math.min(1, dt * 14); anchor.x += (tx - anchor.x) * a; anchor.y += (ty - anchor.y) * a; }
+    else anchor = { x: tx, y: ty };
+    tx = anchor.x; ty = anchor.y;
+
+    const hgt = Math.max(6, H * 0.56 - ty);                 // crest height above the mean line
+    const q  = Math.min(roll, 1);
+    const gt = ss((roll - 0.28) / 0.45);                    // geometry gates in smoothly from zero
+    const cL = Math.min(1, closeK / 0.35);                  // the loop closes EARLY in the close-out…
+    const shrink = 1 - 0.55 * Math.max(0, (closeK - 0.35) / 0.65); // …then the rolled mass shrinks
+    const R = hgt * 0.72 * (1 + 0.25 * cL) * shrink * Math.min(roll, 1.2) * gt; // wave-sized roll
+    if (R < 1.5) return null;
+
+    const sweep = 1.2 + 3.3 * q + 1.9 * cL;                 // ~130° pout -> ~260° hook -> >360° loop
+    const bb = 0.26 - 0.08 * cL;                            // decay relaxes: the loop rounds as it rolls
+    const th0 = -1.92;                                      // ≈ −110°: near-flat entry at the apex
+    const cx = tx + R * 0.342 + R * 0.45 * closeK;          // centre forward-below, driving on and down
+    const cy = ty + R * 0.940 + R * 0.35 * closeK;
+    const K = 26, sp = new Float32Array(K * 2);
+    for (let s = 1; s <= K; s++){
+      const th = th0 + sweep * (s / K), r = R * Math.exp(-bb * sweep * (s / K));
+      sp[(s-1)*2] = cx + r * Math.cos(th);  sp[(s-1)*2 + 1] = cy + r * Math.sin(th);
+    }
+    let ib = ti + 1;                                        // rejoin point ahead of the curl
+    while (ib < N - 2 && xs[ib] < tx + R * 1.25) ib++;
+    if (ib >= N - 2) return null;
+    for (let i = ib; i < N; i++) ys[i] += gt * cr[i];       // the face flows into the roll, 1:1
+    const ex = sp[K*2-2], ey = sp[K*2-1];
+    let vx = ex - sp[K*2-4], vy = ey - sp[K*2-3];
+    const vl = Math.hypot(vx, vy) || 1;
+    const carry = R * (0.45 + 0.35 * closeK);               // long tangent carry = round open throat
+    return { ti, ib, tx, ty, R, sp,
+      c1x: ex + vx / vl * carry, c1y: ey + vy / vl * carry,
+      c2x: xs[ib] - R * 0.70,    c2y: ys[ib] + R * 0.22,    // deep U that RISES into the rejoin
+      lipX: ex, lipY: ey };
+  }
+
+  /* ── Spray: a few cream droplets off the lip around impact ── */
+  const spray = [];
+  function spawnSpray(x, y, dt){
+    if (reduce || sprayK <= 0 || breakP < 0 || curlK <= 0) return;
+    const s = breakP < PITCH ? Math.pow(breakP / PITCH, 2) : Math.max(0, 1 - (breakP - PITCH) / 0.30);
+    let n = 30 * sprayK * s * dt;
+    if (Math.random() < n % 1) n += 1;
+    n = Math.floor(n);
+    for (let i = 0; i < n && spray.length < 48; i++){
+      const impact = breakP > PITCH * 0.8;
+      const a = (impact ? -1.15 : 0.35) + (Math.random() - 0.5) * 0.9;
+      const v = (0.25 + Math.random() * 0.55) * H * 1.3;
+      spray.push({ x: x + (Math.random()-0.5)*5, y: y + (Math.random()-0.5)*4,
+                   vx: Math.cos(a)*v, vy: Math.sin(a)*v,
+                   life: 0, max: 0.4 + Math.random()*0.5, r: 0.6 + Math.random()*0.9 });
+    }
+  }
+  function drawSpray(dt){
+    if (!spray.length) return;
+    const grav = H * 2.4;
+    ctx.fillStyle = color;
+    for (let i = spray.length - 1; i >= 0; i--){
+      const p = spray[i];
+      p.life += dt;
+      if (p.life >= p.max){ spray.splice(i, 1); continue; }
+      p.vy += grav * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+      const f = 1 - p.life / p.max;
+      ctx.globalAlpha = f * f * 0.55;
+      ctx.fillRect(p.x, p.y, p.r, p.r);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* ── Draw: ONE stroke, moveTo exactly once ── */
+  function tracePts(i0, i1){
+    for (let i = i0 + 1; i <= i1; i++)
+      ctx.quadraticCurveTo(xs[i-1], ys[i-1], (xs[i-1] + xs[i]) / 2, (ys[i-1] + ys[i]) / 2);
+    ctx.lineTo(xs[i1], ys[i1]);
+  }
+  function draw(t, dt){
+    state(t);
+    surface(t);
+    ctx.clearRect(0, 0, W, H);
+    const g = curlGeom(dt);
+    ctx.beginPath();
+    ctx.moveTo(xs[0], ys[0]);
+    if (g){
+      // leave the field early, glide over the shoulder (round crest, horizontal tangents),
+      // roll through the spiral, then out via the smooth U back onto the surface
+      const jb = Math.max(0, g.ti - Math.max(2, Math.min(8, Math.round(g.R / 5))));
+      tracePts(0, jb);
+      ctx.quadraticCurveTo(Math.max(xs[jb] + 2, g.tx - g.R * 0.45), g.ty, g.tx, g.ty);
+      ctx.quadraticCurveTo(g.tx + (g.sp[0] - g.tx) * 0.5, g.ty, g.sp[0], g.sp[1]);
+      for (let i = 2; i < g.sp.length; i += 2) ctx.lineTo(g.sp[i], g.sp[i + 1]);
+      ctx.bezierCurveTo(g.c1x, g.c1y, g.c2x, g.c2y, xs[g.ib], ys[g.ib]);
+      tracePts(g.ib, N - 1);
+      spawnSpray(g.lipX, g.lipY, dt);
+    } else {
+      tracePts(0, N - 1);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lw * (0.55 + 0.9 * Math.max(swellH, foam * 0.85, roll * 0.8, wild * 0.7));
+    ctx.lineJoin = ctx.lineCap = 'round';
+    ctx.stroke();
+    drawSpray(dt);
+  }
+
+  let last = 0;
+  function frame(now){
+    const dt = Math.min((now - last) / 1000 || 0, 0.05);
+    last = now;
+    if (canvas.offsetParent !== null){
+      const r = canvas.getBoundingClientRect();
+      if (r.width && (W === 0 || Math.abs(r.width - W) > 1)) resize();
+      if (W) draw(reduce ? 4 : (now - t0) / 1000, dt);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+document.querySelectorAll('canvas.waterline').forEach(initWaterline);
+
+
+</script>
+</body>
+</html>

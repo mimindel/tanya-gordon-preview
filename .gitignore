@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Node / local dev tooling (not needed for the static site)
+node_modules/
+package.json
+package-lock.json
+serve.mjs
+screenshot.mjs
+
+# Internal working notes (keep out of the public repo)
+CLAUDE.md
+waterline-improvement-prompt.md
+waterline-animation-brief.md
+
+# Unused / source assets
+brand_assets/TG_style-guide.png
+brand_assets/placeholder_meet-tanya.jpg
+brand_assets/r_2057136_hYzGD.gif
+brand_assets/tanya_gordon_website_structure.txt
