@@ -814,7 +814,11 @@
     #tw-connect { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--lime); margin: 0 0 18px; }
     .connect-attr { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500; color: var(--on-olive-soft); letter-spacing: .06em; }
     .connect-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
-    .connect-intro-inner { max-width: var(--w-read); margin: 0 auto; }
+    .connect-intro-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 0.66fr; gap: clamp(36px,5vw,72px); align-items: stretch; }
+    .connect-intro-copy { min-width: 0; }
+    .connect-portrait { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 7px 18px rgba(0,0,0,.2); min-height: 460px; }
+    .connect-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+    @media(max-width:820px){ .connect-intro-inner { grid-template-columns: 1fr; gap: 36px; } .connect-portrait { min-height: 0; height: 340px; } }
     .connect-lead { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.7; margin-bottom: clamp(44px,5vw,60px); }
     .csteps { display: flex; flex-direction: column; gap: 30px; }
     .cstep { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
@@ -822,11 +826,7 @@
     .cstep h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); margin-bottom: 7px; letter-spacing: -.01em; }
     .cstep p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin: 0; }
     .connect-form { background: var(--olive); padding: var(--sp-section) var(--gutter); }
-    .connect-form-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px,4vw,60px); }
-    .connect-portrait { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 7px 18px rgba(0,0,0,.2); min-height: 460px; }
-    .connect-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-    .connect-form-copy { min-width: 0; }
-    @media(max-width:760px){ .connect-form-inner { grid-template-columns: 1fr; gap: 30px; } .connect-portrait { min-height: 0; height: 320px; } }
+    .connect-form-inner { max-width: var(--w-form); margin: 0 auto; }
     .connect-form h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
     .flabel { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; color: var(--on-olive); margin-bottom: 8px; display: block; }
     .flabel .req { color: #ef6a3f; }
@@ -1438,20 +1438,22 @@
   <!-- Intro + steps -->
   <section class="connect-intro" id="connect-content">
     <div class="connect-intro-inner">
+      <div class="connect-intro-copy">
       <p class="connect-lead rv">I offer a free 10-minute consultation call so we can talk through what you're looking for and see if I am the right fit to support you or your family.</p>
       <div class="csteps">
         <div class="cstep rv"><div class="cstep-num">1</div><div><h3>Enquire</h3><p>Get in touch via the form below to arrange your free 10-minute consultation call.</p></div></div>
         <div class="cstep rv"><div class="cstep-num">2</div><div><h3>Talk it through</h3><p>We'll use this time to explore what you're looking for and answer any questions you have.</p></div></div>
         <div class="cstep rv"><div class="cstep-num">3</div><div><h3>Getting started</h3><p>We begin with a few sessions to ensure our working relationship is the right fit, before committing to ongoing work.</p></div></div>
       </div>
+      </div>
+      <div class="connect-portrait rv"><img src="brand_assets/CwM.jpg" alt="Tanya Gordon, psychotherapist"></div>
     </div>
   </section>
 
   <!-- Contact form -->
   <section class="connect-form">
     <div class="connect-form-inner">
-      <div class="connect-portrait rv"><img src="brand_assets/CwM.jpg" alt="Tanya Gordon, psychotherapist"></div>
-      <div class="connect-form-copy">
+
       <h2 class="rv">Send me a message</h2>
       <form id="contactForm" onsubmit="handleForm(event)" style="display:flex;flex-direction:column;gap:22px;">
         <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
@@ -1498,7 +1500,6 @@
       <div id="formSuccess" style="display:none;">
         <h3>Message received</h3>
         <p>Thank you for reaching out. I'll be in touch within 2 to 3 working days to arrange your free consultation.</p>
-      </div>
       </div>
     </div>
   </section>
