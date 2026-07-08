@@ -697,10 +697,10 @@
     .young-support.panel-open { padding-bottom: clamp(56px,7vw,96px); }
     .ftabs-inner { max-width: var(--w-wide); margin: 0 auto; }
     .ftabs { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid var(--olive-line); position: relative; }
-    .ftab { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: rgba(246,242,234,.42); background: none; border: none; padding: 0 0 22px; cursor: pointer; position: relative; transition: color .3s; display: inline-flex; align-items: center; gap: clamp(10px,1.2vw,16px); }
+    .ftab { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: rgba(246,242,234,.84); background: none; border: none; padding: 0 0 22px; cursor: pointer; position: relative; transition: color .3s; display: inline-flex; align-items: center; gap: clamp(10px,1.2vw,16px); }
     .ftab:hover .ftab-t, .ftab.active .ftab-t { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
     .ftab-marker { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: linear-gradient(90deg,#e2532f 0%,#f5814f 100%); border-radius: 2px; opacity: 0; transform: translateX(0); transition: transform .5s cubic-bezier(.16,1,.3,1), width .5s cubic-bezier(.16,1,.3,1), opacity .3s; pointer-events: none; }
-    .ftab-ind { display: inline-flex; align-items: center; justify-content: center; color: rgba(246,242,234,.5); flex-shrink: 0; transition: color .3s, transform .5s cubic-bezier(.16,1,.3,1); }
+    .ftab-ind { display: inline-flex; align-items: center; justify-content: center; color: rgba(246,242,234,.84); flex-shrink: 0; transition: color .3s, transform .5s cubic-bezier(.16,1,.3,1); }
     .ftab-ind svg { width: clamp(22px,2.2vw,30px); height: clamp(22px,2.2vw,30px); display: block; }
     .ftab.active .ftab-ind { color: var(--rust); transform: rotate(180deg); }
     .ftab:hover .ftab-ind { color: var(--rust); }
@@ -720,9 +720,11 @@
     .young-faq h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 36px; }
     .young-faq .acc-item { border-bottom: 1px solid var(--olive-line); }
     .young-faq .acc-item:first-child { border-top: 1px solid var(--olive-line); }
-    .young-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); }
-    .young-faq .acc-trigger:hover { color: var(--lime); }
-    .young-faq .acc-icon { color: var(--rust); }
+    .young-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); font-weight: 500; }
+    .young-faq .acc-trigger:hover span { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
+    .young-faq .acc-trigger:hover .acc-icon { color: var(--rust); }
+    .young-faq .acc-icon { color: #fff; width: 1em; height: 1em; min-width: 1em; }
+    .young-faq .acc-icon svg { width: 100%; height: 100%; }
     .young-faq .blist li::before { background: var(--lime); }
     .young-faq .blist strong { font-family: 'Poppins', sans-serif; color: var(--on-olive); }
     .young-faq .blist span { color: var(--on-olive-soft); }
@@ -751,7 +753,7 @@
 
     .adults-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .adults-intro-inner { max-width: var(--w-read); margin: 0 auto; text-align: left; }
-    .adults-intro h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 24px; }
+    .adults-intro h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 24px; }
     .adults-intro p { font-size: var(--fs-lead); color: var(--on-olive-soft); line-height: 1.75; max-width: 720px; margin: 0; }
 
     .adults-nav2030 { background: var(--olive); padding: var(--sp-section) var(--gutter); }
@@ -764,7 +766,7 @@
     .adults-areas { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .adults-areas-inner { max-width: var(--w-read); margin: 0 auto; }
     .adults-areas-head { text-align: left; margin-bottom: 48px; }
-    .adults-areas-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .adults-areas-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
     .areas-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .area-card { background: var(--olive); border-radius: 18px; padding: 30px 32px; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
     .area-card h3 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600; color: var(--on-olive); letter-spacing: -.01em; line-height: 1.2; margin-bottom: 12px; }
@@ -786,7 +788,7 @@
     .neuro-work { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .neuro-work-inner { max-width: var(--w-read); margin: 0 auto; }
     .neuro-work-head { max-width: var(--w-read); margin-bottom: 44px; }
-    .neuro-work-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .neuro-work-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
     .neuro-work-head p { color: var(--on-olive-soft); font-size: var(--fs-lead); line-height: 1.75; margin-top: 16px; }
     .work-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .work-card { background: var(--olive); border-radius: 18px; padding: 28px 30px; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
@@ -798,7 +800,7 @@
     .neuro-res { background: var(--green-deep); padding: var(--sp-section-lg) var(--gutter); }
     .neuro-res-inner { max-width: var(--w-read); margin: 0 auto; }
     .neuro-res-head { margin-bottom: 44px; }
-    .neuro-res-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
+    .neuro-res-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
     .neuro-res-head p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin-top: 12px; max-width: 620px; }
     .res-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
     .res-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; background: var(--olive); border-radius: 14px; padding: 20px 22px; text-decoration: none; box-shadow: 0 7px 18px rgba(0,0,0,.22); transition: transform .3s cubic-bezier(.16,1,.3,1); }
@@ -830,7 +832,7 @@
     .cstep p { color: var(--on-olive-soft); font-size: var(--fs-body); line-height: 1.7; margin: 0; }
     .connect-form { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .connect-form-inner { max-width: var(--w-form); margin: 0 auto; }
-    .connect-form h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
+    .connect-form h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
     .flabel { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600; color: var(--on-olive); margin-bottom: 8px; display: block; }
     .flabel .req { color: #ef6a3f; }
     .flabel .opt { font-weight: 400; color: var(--on-olive-soft); }
@@ -848,7 +850,7 @@
     #formSuccess p { color: var(--on-olive-soft); line-height: 1.7; }
     .connect-faq { background: var(--olive); padding: var(--sp-section) var(--gutter) var(--sp-section-lg); }
     .connect-faq-inner { max-width: var(--w-read); margin: 0 auto; }
-    .connect-faq h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
+    .connect-faq h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; margin-bottom: 36px; }
 
     /* Tanya's "more yellow" — section titles carry the lime accent (all on olive/ink bg) */
     .meet-approach-head h2, .meet-creds h2,
@@ -858,9 +860,11 @@
     .connect-form h2, .connect-faq h2 { color: var(--lime); }
     .connect-faq .acc-item { border-bottom: 1px solid var(--olive-line); }
     .connect-faq .acc-item:first-child { border-top: 1px solid var(--olive-line); }
-    .connect-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); }
-    .connect-faq .acc-trigger:hover { color: var(--lime); }
-    .connect-faq .acc-icon { color: var(--rust); }
+    .connect-faq .acc-trigger { color: var(--on-olive); font-size: var(--fs-h3); font-weight: 500; }
+    .connect-faq .acc-trigger:hover span { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
+    .connect-faq .acc-trigger:hover .acc-icon { color: var(--rust); }
+    .connect-faq .acc-icon { color: #fff; width: 1em; height: 1em; min-width: 1em; }
+    .connect-faq .acc-icon svg { width: 100%; height: 100%; }
     .connect-faq .acc-inner p { color: var(--on-olive-soft); line-height: 1.8; }
 
     /* ══ Type-scale MODE · Tablet (≤991px) ══ */
@@ -1478,15 +1482,15 @@
           </div>
         </div>
         <div class="rv">
-          <label class="flabel" for="email">Email Address <span class="req">*</span></label>
-          <input class="finput" type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="rv">
           <label class="flabel">Preferred Contact Method</label>
           <div style="display:flex;gap:12px;">
-            <button type="button" class="contact-btn sel" onclick="selContact(this)">Email</button>
-            <button type="button" class="contact-btn" onclick="selContact(this)">Phone</button>
+            <button type="button" class="contact-btn sel" onclick="selContact(this,'email')">Email</button>
+            <button type="button" class="contact-btn" onclick="selContact(this,'phone')">Phone</button>
           </div>
+        </div>
+        <div class="rv">
+          <label class="flabel" for="contactval" id="contactval-label">Email Address <span class="req">*</span></label>
+          <input class="finput" type="email" id="contactval" name="contact" required autocomplete="email">
         </div>
         <div class="rv">
           <label class="flabel" for="hear">How did you hear about me?</label>
@@ -1504,7 +1508,7 @@
           <label class="flabel" for="message">Anything you'd like me to know beforehand? <span class="opt">(Optional)</span></label>
           <textarea class="ftextarea" id="message" name="message" placeholder="Share as much or as little as feels comfortable…"></textarea>
         </div>
-        <div class="rv">
+        <div class="rv" style="text-align:right;">
           <button type="submit" class="btn btn-lime">Send message</button>
         </div>
       </form>
@@ -1802,9 +1806,19 @@ function animateQuote(pageId) {
 }
 
 /* ── Contact method select ───────────────────────── */
-function selContact(btn) {
+function selContact(btn, method) {
   btn.closest('div').querySelectorAll('.contact-btn').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
+  const label = document.getElementById('contactval-label');
+  const input = document.getElementById('contactval');
+  if (!label || !input) return;
+  if (method === 'phone') {
+    label.innerHTML = 'Phone Number <span class="req">*</span>';
+    input.type = 'tel'; input.setAttribute('autocomplete', 'tel'); input.value = '';
+  } else {
+    label.innerHTML = 'Email Address <span class="req">*</span>';
+    input.type = 'email'; input.setAttribute('autocomplete', 'email'); input.value = '';
+  }
 }
 
 /* ── Form submit ─────────────────────────────────── */
