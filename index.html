@@ -497,9 +497,9 @@
     /* Tanya's signature 'heart-led' rust wash — intentional, kept subtle */
     .rust-word {
       font-style: normal; font-weight: 500;
-      background: linear-gradient(100deg,#ee7746 0%,#fbac83 100%);
+      background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%);
       -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: #ee7746;
+      -webkit-text-fill-color: transparent; color: #ef6a3f;
     }
 
     /* ── Services (flat olive · shadowed cards) ──────── */
@@ -558,11 +558,8 @@
       position: relative; overflow: hidden; padding: 108px var(--gutter) 48px;
     }
     .home-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
-    .hero-title { font-size: 88px; font-weight: 500; line-height: 1.03; letter-spacing: -.03em; color: var(--on-olive); margin-bottom: 18px; }
-    .hero-title em { font-style: normal; color: var(--lime); }
-    .hero-copy { max-width: 700px; margin: 0 auto; }
-    .hero-lead { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.58; margin: 0 0 18px; }
-    .hero-sub  { font-size: var(--fs-lead); color: var(--on-olive); line-height: 1.58; margin: 0 0 30px; }
+    .hero-statement { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: var(--fs-h2); line-height: 1.42; letter-spacing: -.01em; color: var(--on-olive); max-width: 700px; margin: 0 auto 30px; }
+    .hero-statement strong { font-weight: 600; font-size: var(--fs-h1); color: var(--lime); }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
     .hero-locations {
       display: inline-block; margin: 0 auto 34px;
@@ -884,7 +881,6 @@
         --fs-small: 13.5px;
         --gutter: 20px;
       }
-      .hero-title { font-size: clamp(58px,17vw,76px); }
       .meet-life-img { aspect-ratio: 4 / 3; }
       .meet-life-caption { font-size: var(--fs-small); }
     }
@@ -960,11 +956,7 @@
     <div class="aurora" aria-hidden="true"></div>
     <div class="home-hero-inner">
       <p class="eyebrow rv">MA&nbsp;&nbsp;MBACP&nbsp;&nbsp;UKCP</p>
-      <h1 class="hero-title rv d1">Hi, I'm <em>Tanya</em>...</h1>
-      <div class="hero-copy rv d1">
-        <p class="hero-lead">a psychotherapist supporting young people, families and adults. I work in private practice and specialist educational settings.</p>
-        <p class="hero-sub">Whether you're at a crossroads, a parent at capacity, or a young person who is overwhelmed, I can help you make sense of what's going on and find a way through.</p>
-      </div>
+      <h1 class="hero-statement rv d1"><strong>Hi, I'm Tanya,</strong> a psychotherapist supporting young people, families and adults. I work in private practice and specialist educational settings. Whether you're at a crossroads, a parent at capacity, or a young person who is overwhelmed, I can help you make sense of what's going on and find a way through.</h1>
       <div class="hero-locations rv d2">Highgate&nbsp; · &nbsp;Barnet&nbsp; · &nbsp;Online</div>
       <div class="hero-cta rv d3">
         <button class="btn btn-lime" onclick="go('connect')">Get in Touch</button>
