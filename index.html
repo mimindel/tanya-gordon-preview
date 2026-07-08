@@ -621,8 +621,8 @@
 
     /* Bio prose */
     .meet-bio { background: var(--olive); padding: 0 var(--gutter) var(--sp-section); }
-    .meet-bio-inner { max-width: var(--w-read); margin: 0 auto; columns: 2; column-gap: 52px; }
-    .meet-bio-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); line-height: 1.8; margin-bottom: 22px; break-inside: avoid; }
+    .meet-bio-inner { max-width: var(--w-wide); margin: 0 auto; columns: 2; column-gap: 52px; }
+    .meet-bio-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); line-height: 1.8; margin-bottom: 22px; }
     .meet-bio-inner p:last-child { margin-bottom: 0; }
     .meet-bio-inner .hl { color: var(--on-olive); }
     @media(max-width:720px){ .meet-bio-inner { columns: 1; } }
@@ -638,7 +638,8 @@
 
     /* Olive accordions */
     .meet-acc { background: var(--olive); padding: var(--sp-section) var(--gutter); }
-    .meet-acc-inner { max-width: var(--w-read); margin: 0 auto; }
+    .meet-acc-inner { max-width: var(--w-wide); margin: 0 auto; }
+    .meet-acc .acc-inner { max-width: 50ch; font-size: var(--fs-lead); }
     .meet-acc .acc-item { border-bottom: 1px solid var(--olive-line); }
     .meet-acc .acc-item:first-child { border-top: 1px solid var(--olive-line); }
     .meet-acc .acc-trigger { color: var(--on-olive); font-size: var(--fs-h2); }
@@ -662,7 +663,7 @@
     .appro-card { background: var(--cream); border-radius: 20px; padding: 24px 24px 22px; box-shadow: 0 2px 12px rgba(43,50,37,.10); min-height: 148px; display: flex; flex-direction: column; justify-content: flex-start; }
     .appro-icon { color: var(--rust); margin-bottom: 14px; }
     .appro-icon svg { width: 26px; height: 26px; display: block; }
-    .appro-card strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-lead); font-weight: 600; color: var(--forest); display: block; margin-bottom: 7px; line-height: 1.3; }
+    .appro-card strong { font-family: 'Poppins', sans-serif; font-size: var(--fs-body); font-weight: 600; color: var(--forest); display: block; margin-bottom: 7px; line-height: 1.3; }
     .appro-card p { color: var(--mid-ink); font-size: var(--fs-body); line-height: 1.6; margin: 0; }
 
     /* Credentials band */
