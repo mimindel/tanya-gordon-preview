@@ -47,7 +47,7 @@
       /* ── Type scale (major third ~1.25) ── */
       --fs-h1:      52px;                       /* section / page titles */
       --fs-h2:      40px;                       /* statements / sub-heads */
-      --fs-h3:      22px;                       /* card & small heads */
+      --fs-h3:      var(--fs-lead);             /* card & small heads — same size as lead, differ by weight */
       --fs-lead:    24px;                       /* intro / lead paragraphs */
       --fs-body:    18px;                       /* body */
       --fs-small:   14px;                       /* meta, captions, eyebrows */
@@ -863,7 +863,6 @@
       :root{
         --fs-h1: 40px;
         --fs-h2: 32px;
-        --fs-h3: 20px;
         --fs-lead: 21px;
         --fs-body: 17px;
         --fs-small: 14px;
@@ -876,7 +875,6 @@
       :root{
         --fs-h1: 28px;
         --fs-h2: 24px;
-        --fs-h3: 19px;
         --fs-lead: 18px;
         --fs-body: 16.5px;
         --fs-small: 13.5px;
