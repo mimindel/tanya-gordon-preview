@@ -529,7 +529,7 @@
     }
     .svc-label {
       font-family: 'Poppins', sans-serif; font-size: var(--fs-h3); font-weight: 600;
-      letter-spacing: -.02em; line-height: 1.2; color: var(--on-olive); transition: color .3s;
+      letter-spacing: -.02em; line-height: 1.2; color: var(--lime); transition: color .3s;
     }
     .svc-arrow { flex-shrink: 0; color: var(--on-olive); transition: transform .3s cubic-bezier(.16,1,.3,1), color .3s; }
     .svc-card:hover .svc-arrow, .svc-card:focus-visible .svc-arrow { color: #ef6a3f; transform: translateX(6px); }
@@ -611,7 +611,7 @@
     .meet-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; filter: grayscale(100%) contrast(1.04) brightness(1.02); }
     .meet-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(95,108,85,.14), rgba(43,50,37,.5)); mix-blend-mode: multiply; pointer-events: none; }
     .meet-hero-title { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: var(--fs-h2); line-height: 1.42; letter-spacing: -.01em; color: var(--on-olive); }
-    .meet-hero-title strong { font-weight: 600; font-size: var(--fs-h1); }
+    .meet-hero-title strong { font-weight: 600; font-size: var(--fs-h1); color: var(--lime); }
     @media(max-width:820px){ .meet-hero-inner { grid-template-columns: 1fr; gap: 36px; } .meet-portrait { max-width: 360px; margin: 0 auto; } }
 
     /* Signature voice quote */
@@ -642,8 +642,8 @@
     .meet-acc .acc-inner { max-width: 50ch; font-size: var(--fs-lead); }
     .meet-acc .acc-item { border-bottom: 1px solid var(--olive-line); }
     .meet-acc .acc-item:first-child { border-top: 1px solid var(--olive-line); }
-    .meet-acc .acc-trigger { color: var(--on-olive); font-size: var(--fs-h2); }
-    .meet-acc .acc-trigger:hover { color: var(--lime); }
+    .meet-acc .acc-trigger { color: var(--lime); font-size: var(--fs-h2); }
+    .meet-acc .acc-trigger:hover { color: var(--on-olive); }
     .meet-acc .acc-icon { color: var(--lime); }
     .meet-acc .acc-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); margin-bottom: 16px; line-height: 1.8; }
     .meet-acc .acc-inner p:last-child { margin-bottom: 0; }
@@ -684,7 +684,7 @@
     /* ═══════════ FOR YOUNG PEOPLE PAGE ═══════════ */
     .young-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
     .young-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
-    #tw-young { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+    #tw-young { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--lime); margin: 0; }
     .young-scroll { background: none; border: none; cursor: pointer; color: var(--on-olive-soft); margin-top: 40px; padding: 8px; transition: color .2s, transform .2s, opacity .5s; }
     .young-scroll:hover { color: var(--on-olive); transform: translateY(3px); }
     .young-scroll:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 6px; }
@@ -695,8 +695,8 @@
     .ftabs-inner { max-width: var(--w-wide); margin: 0 auto; }
     .ftabs { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid var(--olive-line); position: relative; }
     .ftab { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: rgba(246,242,234,.42); background: none; border: none; padding: 0 0 22px; cursor: pointer; position: relative; transition: color .3s; display: inline-flex; align-items: center; gap: clamp(10px,1.2vw,16px); }
-    .ftab:hover { color: var(--on-olive-soft); }
-    .ftab.active { color: var(--on-olive); }
+    .ftab:hover { color: var(--lime); }
+    .ftab.active { color: var(--lime); }
     .ftab-marker { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--lime); border-radius: 2px; opacity: 0; transform: translateX(0); transition: transform .5s cubic-bezier(.16,1,.3,1), width .5s cubic-bezier(.16,1,.3,1), opacity .3s; pointer-events: none; }
     .ftab-ind { display: inline-flex; align-items: center; justify-content: center; color: rgba(246,242,234,.5); flex-shrink: 0; transition: color .3s, transform .5s cubic-bezier(.16,1,.3,1); }
     .ftab-ind svg { width: clamp(22px,2.2vw,30px); height: clamp(22px,2.2vw,30px); display: block; }
@@ -732,7 +732,7 @@
     .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 56px; }
     .steps-grid .step-card:nth-child(even) { margin-top: 52px; }
     .step-card { display: flex; flex-direction: column; }
-    .gs-num { font-family: 'Poppins', sans-serif; font-size: clamp(52px,6.5vw,78px); font-weight: 700; line-height: .9; color: rgba(246,242,234,.17); padding-left: 6px; margin-bottom: 8px; }
+    .gs-num { font-family: 'Poppins', sans-serif; font-size: clamp(52px,6.5vw,78px); font-weight: 700; line-height: .9; color: rgba(220,224,36,.4); padding-left: 6px; margin-bottom: 8px; }
     .step-inner { background: var(--olive); border-radius: 22px; padding: 32px 30px 30px; box-shadow: 0 7px 18px rgba(0,0,0,.28); text-align: center; }
     .step-ico { color: var(--on-olive); display: flex; justify-content: center; margin-bottom: 16px; }
     .step-ico svg { width: 40px; height: 40px; }
@@ -744,7 +744,7 @@
     /* ═══════════ FOR ADULTS PAGE ═══════════ */
     .adults-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
     .adults-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
-    #tw-adults { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+    #tw-adults { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--lime); margin: 0; }
 
     .adults-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .adults-intro-inner { max-width: var(--w-read); margin: 0 auto; text-align: left; }
@@ -771,7 +771,7 @@
     /* ═══════════ FOR NEURODIVERGENCE PAGE ═══════════ */
     .neuro-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
     .neuro-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
-    #tw-neuro { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0; }
+    #tw-neuro { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--lime); margin: 0; }
 
     .neuro-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .neuro-intro-inner { max-width: var(--w-wide); margin: 0 auto; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px,5vw,64px); align-items: start; }
@@ -811,7 +811,7 @@
     /* ═══════════ CONNECT PAGE ═══════════ */
     .connect-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
     .connect-hero-inner { max-width: var(--w-hero); margin: 0 auto; position: relative; z-index: 1; }
-    #tw-connect { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--on-olive); margin: 0 0 18px; }
+    #tw-connect { font-family: 'Atkinson Hyperlegible', Georgia, serif; font-style: italic; font-weight: 400; font-size: var(--fs-h1); line-height: 1.35; letter-spacing: -.01em; color: var(--lime); margin: 0 0 18px; }
     .connect-attr { font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 500; color: var(--on-olive-soft); letter-spacing: .06em; }
     .connect-intro { background: var(--olive); padding: var(--sp-section) var(--gutter); }
     .connect-intro-inner { max-width: var(--w-read); margin: 0 auto; }
