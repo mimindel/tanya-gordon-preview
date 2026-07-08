@@ -183,7 +183,7 @@
     }
     .nav-brand-text > span:first-child { display: block; color: var(--on-olive); font-weight: 700; letter-spacing: .045em; }
     .nav-brand-text > span:last-child  { display: block; font-weight: 500; color: var(--on-olive); letter-spacing: .02em; }
-    .foot-brand .nav-brand-text { font-size: 18px; }
+    .foot-brand .nav-brand-text { font-size: 22px; }
     .nav-links { display: flex; align-items: center; gap: 2px; }
     .nl {
       font-family: 'Poppins', sans-serif;
@@ -639,8 +639,10 @@
     .meet-acc .acc-item { border-bottom: 1px solid var(--olive-line); }
     .meet-acc .acc-item:first-child { border-top: 1px solid var(--olive-line); }
     .meet-acc .acc-trigger { color: var(--lime); font-size: var(--fs-h2); }
-    .meet-acc .acc-trigger:hover { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
-    .meet-acc .acc-icon { color: var(--lime); }
+    .meet-acc .acc-trigger:hover span { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
+    .meet-acc .acc-trigger:hover .acc-icon { color: var(--rust); }
+    .meet-acc .acc-icon { color: var(--lime); width: 1em; height: 1em; min-width: 1em; }
+    .meet-acc .acc-icon svg { width: 100%; height: 100%; }
     .meet-acc .acc-inner p { font-size: var(--fs-lead); color: var(--on-olive-soft); margin-bottom: 16px; line-height: 1.8; }
     .meet-acc .acc-inner p:last-child { margin-bottom: 0; }
     .meet-acc .blist li { font-size: var(--fs-lead); }
@@ -1534,8 +1536,8 @@
   <div class="footer-inner">
     <div class="foot-top" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;margin-bottom:56px;">
       <!-- Brand -->
-      <div class="foot-brand" style="display:flex;align-items:center;gap:17px;text-align:left;">
-        <img src="brand_assets/Logo_TG.svg" alt="Tanya Gordon" style="height:58px;width:auto;display:block;flex-shrink:0;">
+      <div class="foot-brand" style="display:flex;align-items:center;gap:21px;text-align:left;">
+        <img src="brand_assets/Logo_TG.svg" alt="Tanya Gordon" style="height:72px;width:auto;display:block;flex-shrink:0;">
         <span class="nav-brand-text"><span>Tanya Gordon</span><span>Psychotherapy</span></span>
       </div>
       <!-- Locations + CTA grouped right -->
