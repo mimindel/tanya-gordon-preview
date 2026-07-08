@@ -195,12 +195,13 @@
     .nl:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; border-radius: 4px; }
     .nl.on { color: var(--on-olive); background: none; border-image: linear-gradient(90deg,#e2532f 0%,#f5814f 100%) 1; }
     .nl.cta {
-      background: var(--lime); color: var(--olive-ink);
+      background: linear-gradient(90deg,#e2532f 0%,#f5814f 100%) border-box; background-repeat: no-repeat; color: var(--cream);
       padding: 9px 18px; border-radius: 50px; font-weight: 600;
       border-top: 2px solid transparent;
-      margin-left: 10px; transition: background .2s, transform .15s, box-shadow .2s;
+      -webkit-appearance: none; appearance: none;
+      margin-left: 10px; transition: filter .2s, transform .15s, box-shadow .2s;
     }
-    .nl.cta:hover { background: #eef14a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(220,224,36,.28); }
+    .nl.cta:hover { filter: brightness(1.07); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(218,63,39,.3); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; }
     .hamburger:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--on-olive); border-radius: 2px; transition: background .3s, transform .3s; }
