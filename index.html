@@ -32,6 +32,7 @@
       --olive:        #5e724f;   /* base surface / hero */
       --olive-deep:   #4c5c3e;   /* recessed sections */
       --olive-ink:    #2b3522;   /* darkest — CTA / footer */
+      --green-deep:   #3a4430;   /* dark-green bands: footer, CTA, deep sections */
       --olive-line:   rgba(245,240,232,.14);
       --relief:       #e8e4d6;   /* light warm-stone relief panel */
 
@@ -180,7 +181,7 @@
       font-size: var(--fs-small); font-weight: 500;
       color: var(--on-olive); line-height: 1.35;
     }
-    .nav-brand-text > span:first-child { display: block; color: var(--on-olive); font-weight: 700; letter-spacing: .02em; }
+    .nav-brand-text > span:first-child { display: block; color: var(--on-olive); font-weight: 700; letter-spacing: .045em; }
     .nav-brand-text > span:last-child  { display: block; font-weight: 500; color: var(--on-olive); letter-spacing: .02em; }
     .nav-links { display: flex; align-items: center; gap: 2px; }
     .nl {
@@ -544,14 +545,14 @@
     @media(max-width: 800px) { .svc-grid { grid-template-columns: 1fr; } .svc-card { min-height: auto; } }
 
     /* ── Closing CTA band (footer-dark green) ────────── */
-    .cta-band { background: var(--ink); padding: var(--sp-section-xl) var(--gutter); text-align: center; position: relative; overflow: hidden; }
+    .cta-band { background: var(--green-deep); padding: var(--sp-section-xl) var(--gutter); text-align: center; position: relative; overflow: hidden; }
     .cta-band::before { content: ''; position: absolute; top: -34%; left: 50%; transform: translateX(-50%); width: 660px; height: 660px; border-radius: 50%; background: radial-gradient(circle, rgba(220,224,36,.09), transparent 66%); pointer-events: none; }
     .cta-inner { max-width: var(--w-form); margin: 0 auto; position: relative; z-index: 1; }
     .cta-title { color: var(--on-olive); font-size: var(--fs-h1); margin-bottom: 20px; letter-spacing: -.03em; }
     .cta-text { font-size: var(--fs-lead); color: var(--on-olive-soft); margin: 0 auto 38px; line-height: 1.7; max-width: 520px; }
 
     /* ── Footer ─────────────────────────────────────────── */
-    #site-footer { background: var(--ink); color: var(--cream); padding: 72px 28px 48px; }
+    #site-footer { background: var(--green-deep); color: var(--cream); padding: 72px 28px 48px; }
     .footer-inner { max-width: var(--w-wide); margin: 0 auto; }
 
     /* ── Hero (home · olive) ────────────────────────────── */
@@ -719,7 +720,7 @@
     .young-faq .blist span { color: var(--on-olive-soft); }
 
     /* How to get started (footer-dark, Aepsy-style staggered cards) */
-    .young-start { background: var(--ink); padding: var(--sp-section-xl) var(--gutter); }
+    .young-start { background: var(--green-deep); padding: var(--sp-section-xl) var(--gutter); }
     .young-start-inner { max-width: var(--w-read); margin: 0 auto; }
     .young-start h2 { color: var(--on-olive); font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 14px; }
     .young-start-intro { color: var(--on-olive-soft); font-size: var(--fs-lead); line-height: 1.7; max-width: 620px; }
@@ -786,7 +787,7 @@
     .neuro-work-cta { margin-top: 44px; display: flex; justify-content: center; }
     @media(max-width:640px){ .work-grid { grid-template-columns: 1fr; } }
 
-    .neuro-res { background: var(--ink); padding: var(--sp-section-lg) var(--gutter); }
+    .neuro-res { background: var(--green-deep); padding: var(--sp-section-lg) var(--gutter); }
     .neuro-res-inner { max-width: var(--w-read); margin: 0 auto; }
     .neuro-res-head { margin-bottom: 44px; }
     .neuro-res-head h2 { font-family: 'Poppins', sans-serif; font-size: var(--fs-h1); font-weight: 600; color: var(--on-olive); letter-spacing: -.02em; margin-top: 12px; }
@@ -1532,12 +1533,9 @@
   <div class="footer-inner">
     <div class="foot-top" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;margin-bottom:56px;">
       <!-- Brand -->
-      <div style="display:flex;align-items:center;gap:12px;">
-        <img src="brand_assets/Logo_TG.svg" alt="Tanya Gordon" style="height:46px;width:auto;display:block;flex-shrink:0;">
-        <div>
-          <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:500;color:rgba(245,240,232,.82);line-height:1.3;margin-bottom:3px;">Tanya Gordon</p>
-          <p style="font-family:'Poppins',sans-serif;font-size: var(--fs-small);font-weight:300;color:rgba(245,240,232,.45);line-height:1.3;">Psychotherapy</p>
-        </div>
+      <div style="display:flex;align-items:center;gap:13px;text-align:left;">
+        <img src="brand_assets/Logo_TG.svg" alt="Tanya Gordon" style="height:44px;width:auto;display:block;flex-shrink:0;">
+        <span class="nav-brand-text"><span>Tanya Gordon</span><span>Psychotherapy</span></span>
       </div>
       <!-- Locations + CTA grouped right -->
       <div class="foot-right" style="display:flex;align-items:flex-start;gap:64px;">
