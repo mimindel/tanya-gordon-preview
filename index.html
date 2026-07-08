@@ -247,14 +247,14 @@
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: 'Poppins', sans-serif; font-size: var(--fs-small); font-weight: 600;
-      padding: 14px 28px; border-radius: 50px; border: 2px solid transparent; text-decoration: none;
+      padding: 14px 28px; border-radius: 50px; border: 2px solid transparent; -webkit-appearance: none; appearance: none; text-decoration: none;
       transition: background-color .25s cubic-bezier(.16,1,.3,1), color .25s, border-color .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s, filter .25s;
       cursor: pointer;
     }
     .btn:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
     .btn:active { transform: translateY(0) !important; }
     /* Primary CTA on olive: lime */
-    .btn-lime { background: linear-gradient(90deg,#e2532f 0%,#f5814f 100%); color: var(--cream); }
+    .btn-lime { background: linear-gradient(90deg,#e2532f 0%,#f5814f 100%) border-box; background-repeat: no-repeat; color: var(--cream); }
     .btn-lime:hover { filter: brightness(1.07); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(218,63,39,.32); }
     /* Ghost on olive: cream outline */
     .btn-outline { background: transparent; color: var(--on-olive); border-color: rgba(246,242,234,.4); }
