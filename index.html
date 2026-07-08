@@ -33,7 +33,7 @@
       --olive-deep:   #4c5c3e;   /* recessed sections */
       --olive-ink:    #2b3522;   /* darkest — CTA / footer */
       --green-deep:   #3a4430;   /* dark-green bands: footer, CTA, deep sections */
-      --olive-line:   rgba(245,240,232,.14);
+      --olive-line:   rgba(245,240,232,.5);
       --relief:       #e8e4d6;   /* light warm-stone relief panel */
 
       /* Text on olive */
@@ -697,7 +697,7 @@
     .young-support { background: var(--olive); min-height: 50vh; padding: var(--sp-section-lg) var(--gutter) clamp(100px,13vw,168px); transition: padding-bottom .55s cubic-bezier(.16,1,.3,1); }
     .young-support.panel-open { padding-bottom: clamp(56px,7vw,96px); }
     .ftabs-inner { max-width: var(--w-wide); margin: 0 auto; }
-    .ftabs { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid rgba(245,240,232,.5); position: relative; }
+    .ftabs { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid var(--olive-line); position: relative; }
     .ftab { font-family: 'Poppins', sans-serif; font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: rgba(246,242,234,.84); background: none; border: none; padding: 0 0 22px; cursor: pointer; position: relative; transition: color .3s; display: inline-flex; align-items: center; gap: clamp(10px,1.2vw,16px); }
     .ftab:hover .ftab-t, .ftab.active .ftab-t { background: linear-gradient(100deg,#e2532f 0%,#f5814f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #da3f27; }
     .ftab-marker { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: linear-gradient(90deg,#e2532f 0%,#f5814f 100%); border-radius: 2px; opacity: 0; transform: translateX(0); transition: transform .5s cubic-bezier(.16,1,.3,1), width .5s cubic-bezier(.16,1,.3,1), opacity .3s; pointer-events: none; }
