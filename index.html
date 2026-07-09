@@ -494,7 +494,7 @@
     @media(max-width:800px){ .g3,.g2 { grid-template-columns: 1fr; } }
 
     /* ── Editorial statement (flat olive) ────────────── */
-    .intro-strip { background: var(--olive); padding: var(--sp-section-lg) var(--gutter) 48px; }
+    .intro-strip { background: var(--olive); padding: clamp(46px,6.5vw,87px) var(--gutter) 41px; }
     .intro-statement {
       max-width: var(--w-hero); margin: 0 auto; text-align: center;
       font-family: 'Poppins', sans-serif; font-weight: 400;
@@ -510,7 +510,7 @@
     }
 
     /* ── Services (flat olive · shadowed cards) ──────── */
-    .services { background: var(--olive); padding: var(--sp-section-lg) var(--gutter); }
+    .services { background: var(--olive); padding: clamp(54px,7.65vw,102px) var(--gutter) var(--sp-section-lg); }
     .services-inner { max-width: var(--w-wide); margin: 0 auto; }
     .services-head { text-align: center; margin-bottom: 54px; }
     .services-title { font-size: var(--fs-h1); letter-spacing: -.02em; margin-bottom: 12px; color: var(--lime); }
@@ -561,7 +561,7 @@
     .footer-inner { max-width: var(--w-wide); margin: 0 auto; }
 
     /* ── Hero (home · olive) ────────────────────────────── */
-    .home-hero { min-height: 100vh; display: flex; align-items: center; background: var(--olive); position: relative; overflow: hidden; padding: 124px var(--gutter) 64px; }
+    .home-hero { display: flex; align-items: center; background: var(--olive); position: relative; overflow: hidden; padding: 150px var(--gutter) 64px; }
     .home-hero-inner { max-width: var(--w-wide); margin: 0 auto; width: 100%; position: relative; z-index: 1;
       display: grid; grid-template-columns: 1.4fr .78fr; gap: clamp(32px,5vw,72px); align-items: center; }
     .home-hero-copy { min-width: 0; }
